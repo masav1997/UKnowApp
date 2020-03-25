@@ -6,7 +6,7 @@ import {
   Dimensions,
   Platform
 } from "react-native";
-import FinishPage2 from "./screens/FinishPage/FinishPage2";
+import FinishCreate from "./screens/FinishCreate/FinishCreate";
 
 export default class App extends React.Component {
   state = {
@@ -21,7 +21,7 @@ export default class App extends React.Component {
             paddingTop: Platform.OS === "android" ? 25 : 0
           }}
         >
-          <FinishPage2 />
+          <FinishCreate />
         </SafeAreaView>
       </View>
     );
