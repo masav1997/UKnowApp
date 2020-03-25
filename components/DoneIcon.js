@@ -1,7 +1,7 @@
 import React from "react";
 import { Image } from "react-native";
 
-export default class Logo extends React.Component {
+export default class DoneIcon extends React.Component {
   render() {
     const logoStyle = {
         top: 20,

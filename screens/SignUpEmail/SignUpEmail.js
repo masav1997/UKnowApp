@@ -41,7 +41,7 @@ export default class SignUpEmail extends React.Component {
         />
         <View style={styles.delSpace}></View>
         <Input
-          placeholder="Повторите пароль"
+          label="Повторите пароль"
           value={this.state.password1}
           onChangeText={(text) => this.setState({password1: text})}
           autoCompleteType="password"

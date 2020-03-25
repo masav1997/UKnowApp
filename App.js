@@ -6,7 +6,7 @@ import {
   Dimensions,
   Platform
 } from "react-native";
-import SignUpEmail from "./screens/SignUpEmail/SignUpEmail";
+import Filters from "./screens/Filters/Filters";
 
 export default class App extends React.Component {
   state = {
@@ -22,7 +22,7 @@ export default class App extends React.Component {
             paddingTop: Platform.OS === "android" ? 25 : 0
           }}
         >
-          <SignUpEmail />
+          <Filters />
         </SafeAreaView>
       </View>
     );

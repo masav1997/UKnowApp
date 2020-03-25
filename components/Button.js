@@ -12,6 +12,13 @@ export default class Button extends React.Component {
       height: 50,
       alignSelf: "center",
       marginBottom: 25,
+      shadowColor: "rgba(255, 51, 88, 0.6)",
+      shadowOpacity: 0.8,
+      shadowRadius: 15,
+      shadowOffset: {
+        height: -1,
+        width: 0
+      }
     };
     const touchableStyle = {
       width: "100%",
