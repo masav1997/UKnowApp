@@ -52,7 +52,7 @@ const PROP1 = [
 export default class Filters extends React.Component {
   render() {
     return (
-      <View style={{ textAlign: "center" }}>
+      <View style={{ width: width - 30, textAlign: "center" }}>
         <ScrollView>
           <Header
             left={<BackButton />}

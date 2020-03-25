@@ -14,7 +14,7 @@ export default class ForgotPassword extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={{width: width - 30,}}>
         <Header left={<BackButton />} center={<Logo />} />
         <Title
           title="Забыли пароль?"

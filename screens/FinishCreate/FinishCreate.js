@@ -7,13 +7,13 @@ import Quit from "../../components/Quit";
 
 const { height, width } = Dimensions.get("window");
 
-export default class FinishPage2 extends React.Component {
+export default class FinishCreate extends React.Component {
   render() {
     return (
       <View style={{ width: width - 30, textAlign: "center" }}>
         <Header
           left={<Quit />}
-          center={<HeaderTitle title="Викторина закончена" />}
+          center={<HeaderTitle title="Викторина создана" />}
         />
         <View style={{ marginBottom: height / 5 }}></View>
         <Text
@@ -36,25 +36,10 @@ export default class FinishPage2 extends React.Component {
             fontWeight: "500",
             color: "#FFF",
             marginBottom: 40,
-            textAlign: "center",
-            marginLeft: 12,
-            marginRight: 12
+            textAlign: "center"
           }}
         >
-          Викторина успешно закончена. Дождитесь пока все участники закончат.
-          Осталось {" "}
-          <Text
-            style={{
-              fontStyle: "normal",
-              fontSize: 16,
-              lineHeight: 20,
-              fontWeight: "bold",
-              color: "#FEAC5E",
-              textAlign: "center"
-            }}
-          >
-            15 из 250
-          </Text>
+          Вы успешно создали викторину
         </Text>
         <View style={{ position: "absolute", marginTop: height - 79 }}>
           <Button buttonTitle="Продолжить" />

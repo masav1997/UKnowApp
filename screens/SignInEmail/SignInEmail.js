@@ -15,7 +15,7 @@ export default class SignInEmail extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={{width: width - 30,}}>
         <Logo />
         <ControlTab selectedIndex={1} />
         <Title

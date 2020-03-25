@@ -10,7 +10,7 @@ const { height } = Dimensions.get("window");
 export default class FinishPage1 extends React.Component {
   render() {
     return (
-      <View style={{ textAlign: "center" }}>
+      <View style={{ width: width - 30, textAlign: "center" }}>
         <Header
           left={<Quit />}
           center={<HeaderTitle title="Викторина закончена" />}

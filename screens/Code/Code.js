@@ -10,7 +10,7 @@ import Title from "../../components/Title";
 export default class Code extends React.Component {
   render() {
     return (
-      <View style={{ textAlign: "center" }}>
+      <View style={{ width: width - 30, textAlign: "center" }}>
         <Header left={<BackButton />} center={<Logo />} />
         <View style={styles.space}></View>
         <Title title="Код из смс"/>

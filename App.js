@@ -6,7 +6,7 @@ import {
   Dimensions,
   Platform
 } from "react-native";
-import Filters from "./screens/CreateQuiz/Filters";
+import FinishPage2 from "./screens/FinishPage/FinishPage2";
 
 export default class App extends React.Component {
   state = {
@@ -18,11 +18,10 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <SafeAreaView
           style={{
-            width: width - 30,
             paddingTop: Platform.OS === "android" ? 25 : 0
           }}
         >
-          <Filters />
+          <FinishPage2 />
         </SafeAreaView>
       </View>
     );

@@ -14,7 +14,7 @@ export default class SignUpPhone extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={{width: width - 30,}}>
         <Logo />
         <ControlTab selectedIndex={0}/>
         <Title
