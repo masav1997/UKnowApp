@@ -32,6 +32,8 @@ export default class Input extends React.Component {
           {...props}
           style={textInputStyle}
           keyboardType={keyboardType}
+          placeholder={placeholder}
+          placeholderTextColor={'#FFF'}
         />
       </View>
     );

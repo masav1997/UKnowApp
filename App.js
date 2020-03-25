@@ -6,7 +6,7 @@ import {
   Dimensions,
   Platform
 } from "react-native";
-import Filters from "./screens/Filters/Filters";
+import Filters from "./screens/CreateQuiz/Filters";
 
 export default class App extends React.Component {
   state = {

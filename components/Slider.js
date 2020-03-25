@@ -1,20 +1,17 @@
 import React from "react";
 import {
   View,
-  TouchableOpacity,
   Text,
-  StyleSheet,
-  Image,
-  Dimensions
+  Dimensions,
 } from "react-native";
-import MultiSlider from "@ptomasroos/react-native-multi-slider";
+import Slider from "react-native-slider";
 const { width } = Dimensions.get("window");
 
 export default class Multislider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      values: [30, 70]
+      values: 70
     };
   }
   multiSliderValuesChange = values => {
@@ -68,23 +65,19 @@ export default class Multislider extends React.Component {
       <View style={{marginBottom: 20}}>
         <View style={titleStyle}>
           <Text style={titleTextStyle}>{title}</Text>
-          <Text style={price1Style}>₽{this.state.values[0]}тыс. - </Text>
-          <Text style={price2Style}>₽{this.state.values[1]}тыс.</Text>
+          <Text style={price1Style}>₽1тыс. - </Text>
+          <Text style={price2Style}>₽{this.state.values}тыс.</Text>
         </View>
-        <MultiSlider
-          values={[this.state.values[0], this.state.values[1]]}
-          sliderLength={width - 30}
-          onValuesChange={this.multiSliderValuesChange}
-          min={0}
-          max={100}
+        <Slider
+          value={this.state.values}
+          style={{width:width - 30}}
+          onValueChange={this.multiSliderValuesChange}
+          minimumValue={0}
+          maximumValue={100}
           step={1}
-          selectedStyle={{
-            backgroundColor: "#FF3358"
-          }}
-          unselectedStyle={{
-            backgroundColor: "#9597A1"
-          }}
-          markerStyle={{
+          minimumTrackTintColor={"#FF3358"}
+          maximumTrackTintColor={"#9597A1"}
+          thumbStyle={{
             backgroundColor: "#FFFFFF",
             width: 13,
             height: 13

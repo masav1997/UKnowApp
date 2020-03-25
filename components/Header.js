@@ -15,7 +15,7 @@ export default class Header extends React.Component {
     };
     const centerStyle = {
       flex: 1,
-      alignItems: "center"
+      alignItems: "center",
     };
     const rightStyle = {
       flex: 1,
