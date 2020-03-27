@@ -4,11 +4,12 @@ import { View, Text, TouchableOpacity, Dimensions } from "react-native";
 export default class Button extends React.Component {
   render() {
     const { width } = Dimensions.get("window");
-    const { buttonTitle } = this.props;
+    const { buttonTitle, onPress } = this.props;
     const buttonStyle = {
       backgroundColor: "#FF3358",
       borderRadius: 15,
-      width: width - 30,
+      marginLeft: 15, marginRight:15,
+      width: '100%', 
       height: 50,
       alignSelf: "center",
       marginBottom: 25,
@@ -34,7 +35,7 @@ export default class Button extends React.Component {
     };
     return (
       <View style={buttonStyle}>
-        <TouchableOpacity style={touchableStyle}>
+        <TouchableOpacity style={touchableStyle} onPress={onPress}>
           <Text style={textStyle}>{buttonTitle}</Text>
         </TouchableOpacity>
       </View>

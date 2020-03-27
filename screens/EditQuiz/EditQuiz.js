@@ -2,26 +2,16 @@ import React from 'react';
 import { View, ScrollView, Dimensions, Text, Image, TouchableOpacity } from 'react-native';
 import Header from '../../components/Header';
 import BackButton from '../../components/BackButton';
-import Button from '../../components/Button';
 import Logo from '../../components/Logo';
-import FindIcon from '../../components/FindIcon';
+import PenIcon from '../../components/PenIcon';
 import NameBlock from '../../components/NameBlock';
 import WinBlock from '../../components/WinBlock';
 import NavBar from '../../components/NavBar';
 import DescriptionBlock from '../../components/DescriptionBlock';
-import Modal from 'react-native-modal';
-import Input from '../../components/Input';
 
 const { width } = Dimensions.get('window');
 
-export default class AboutQuiz extends React.Component {
-	state = {
-		isModalVisible: false,
-	};
-
-	toggleModal = () => {
-		this.setState({ isModalVisible: !this.state.isModalVisible });
-	};
+export default class EditQuiz extends React.Component {
 	render() {
 		return (
 			<View style={{ textAlign: 'center', backgroundColor: '#09121C' }}>
@@ -39,7 +29,7 @@ export default class AboutQuiz extends React.Component {
 						}}
 					>
 						<View>
-							<Header left={<BackButton />} center={<Logo />} right={<FindIcon />} />
+							<Header left={<BackButton />} center={<Logo />} right={<PenIcon />} />
 						</View>
 						<View style={{ flexDirection: 'row' }}>
 							<View style={{ flex: 1, height: 28 }}>
@@ -238,147 +228,26 @@ export default class AboutQuiz extends React.Component {
 							data="15 окт. 2020"
 						/>
 					</ScrollView>
-					<Modal isVisible={this.state.isModalVisible}>
-						<View
+					<View style={{ flexDirection: 'row', flex: 1, alignSelf: 'center' }}>
+						<Image
+							source={require('../../assets/icons/delete.png')}
+							style={{ width: 20, height: 20, alignSelf: 'center', bottom: 13, marginRight: 5 }}
+						/>
+						<Text
 							style={{
-								width: width - 30,
-								height: 'auto',
-								backgroundColor: '#19232F',
-								borderTopLeftRadius: 16,
-								borderTopRightRadius: 16,
-								borderBottomLeftRadius: 16,
-								paddingRight: 15,
-								paddingLeft: 15,
-								paddingTop: 32,
-							}}
-						>
-							<Text
-								style={{
-									fontSize: 20,
-									color: '#fff',
-									marginBottom: 10,
-									fontWeight: 'bold',
-									textAlign: 'center',
-								}}
-							>
-								Внимание!
-							</Text>
-							<Text
-								style={{
-									fontSize: 16,
-									color: '#fff',
-									marginBottom: 20,
-									fontWeight: '500',
-									textAlign: 'center',
-									lineHeight: 20,
-								}}
-							>
-								Вы действительно хотите поучаствовать в этой викторине. Стоимость участия{' '}
-								<Text
-									style={{
-										fontSize: 16,
-										color: '#FEAC5E',
-										marginBottom: 10,
-										fontWeight: '700',
-										textAlign: 'center',
-									}}
-								>
-									250 руб.
-								</Text>{' '}
-							</Text>
-							<Button buttonTitle="ДА" onPress={this.toggleModal} />
-							<TouchableOpacity onPress={this.toggleModal}>
-								<Text
-									style={{
-										fontSize: 16,
-										color: '#FF3358',
-										marginBottom: 25,
-										fontWeight: 'bold',
-										textAlign: 'center',
-									}}
-								>
-									Назад
-								</Text>
-							</TouchableOpacity>
-						</View>
-					</Modal>
-					<View style={{ flexDirection: 'row', alignSelf: 'center', marginLeft: 15, marginRight: 15 }}>
-						<View
-							style={{
-								flex: 4,
-								backgroundColor: '#FF3358',
-								borderRadius: 15,
-								width: width - 30,
-								height: 50,
-								alignSelf: 'center',
+								fontSize: 16,
+								fontWeight: '500',
+								lineHeight: 20,
 								marginBottom: 25,
-								shadowColor: 'rgba(255, 51, 88, 0.6)',
-								shadowOpacity: 0.8,
-								shadowRadius: 15,
-								shadowOffset: {
-									height: -1,
-									width: 0,
-								},
+								textAlign: 'left',
+								color: '#FF3358',
 							}}
 						>
-							<TouchableOpacity
-								style={{
-									width: '100%',
-									height: '100%',
-									display: 'flex',
-									justifyContent: 'center',
-									alignItems: 'center',
-								}}
-								onPress={this.toggleModal}
-							>
-								<Text
-									style={{
-										color: '#FFFFFF',
-										lineHeight: 16,
-										fontWeight: 'bold',
-									}}
-								>
-									Участвовать
-								</Text>
-							</TouchableOpacity>
-						</View>
-						<View
-							style={{
-								flex: 1,
-								backgroundColor: '#FF3358',
-								borderRadius: 15,
-								width: 50,
-								height: 50,
-								alignSelf: 'center',
-								marginBottom: 25,
-								marginLeft: 10,
-								shadowColor: 'rgba(255, 51, 88, 0.6)',
-								shadowOpacity: 0.8,
-								shadowRadius: 15,
-								shadowOffset: {
-									height: -1,
-									width: 0,
-								},
-							}}
-						>
-							<TouchableOpacity
-								style={{
-									width: '100%',
-									height: '100%',
-									display: 'flex',
-									justifyContent: 'center',
-									alignItems: 'center',
-								}}
-							>
-								<Image
-									source={require('../../assets/icons/share.png')}
-									style={{ width: 20, height: 20 }}
-								/>
-							</TouchableOpacity>
-						</View>
+							Удалить викторину
+						</Text>
 					</View>
 				</ScrollView>
-				<NavBar />
+				<NavBar/>
 			</View>
 		);
 	}
