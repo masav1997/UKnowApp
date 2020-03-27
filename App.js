@@ -6,7 +6,7 @@ import {
   Dimensions,
   Platform
 } from "react-native";
-import FinishCreate from "./screens/FinishCreate/FinishCreate";
+import AboutQuiz from "./screens/AboutQuiz/AboutQuiz";
 
 export default class App extends React.Component {
   state = {
@@ -21,7 +21,7 @@ export default class App extends React.Component {
             paddingTop: Platform.OS === "android" ? 25 : 0
           }}
         >
-          <FinishCreate />
+          <AboutQuiz />
         </SafeAreaView>
       </View>
     );

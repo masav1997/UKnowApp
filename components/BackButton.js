@@ -5,8 +5,8 @@ export default class BackButton extends React.Component {
   render() {
     const logoStyle = {
         top: 22,
-        height: 15,
-        width: 16,
+        height: 25,
+        width: 26,
     };
     return (
         <Image source={require("../assets/icons/back.png")} style={logoStyle} />
