@@ -59,10 +59,10 @@ export default class MainPage extends React.Component {
 							</Text>
 						</View>
 					</View>
-					<AboutQuiz/>
-					<AboutQuiz />
-					<AboutQuiz />
-					<AboutQuiz />
+					<AboutQuiz title="Викторина на знание истории отечетсвенного автопрома" descr1="Призовой фонд:" descr2="25 000 руб + подарки" descr3="Начнется через:" descr4="15 ч 15 мин" />
+					<AboutQuiz title="Викторина на знание истории отечетсвенного автопрома" descr1="Призовой фонд:" descr2="25 000 руб + подарки" descr3="Начнется через:" descr4="15 ч 15 мин" />
+					<AboutQuiz title="Викторина на знание истории отечетсвенного автопрома" descr1="Призовой фонд:" descr2="25 000 руб + подарки" descr3="Начнется через:" descr4="15 ч 15 мин" />
+					<AboutQuiz title="Викторина на знание истории отечетсвенного автопрома" descr1="Призовой фонд:" descr2="25 000 руб + подарки" descr3="Начнется через:" descr4="15 ч 15 мин" />
 				</ScrollView>
 				<NavBar />
 			</View>

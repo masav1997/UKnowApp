@@ -6,7 +6,7 @@ import {
   Dimensions,
   Platform
 } from "react-native";
-import AboutQuiz from "./screens/AboutQuiz/AboutQuiz";
+import SignUpPhone from "./screens/SignUpPhone/SignUpPhone";
 
 export default class App extends React.Component {
   state = {
@@ -21,7 +21,7 @@ export default class App extends React.Component {
             paddingTop: Platform.OS === "android" ? 25 : 0
           }}
         >
-          <AboutQuiz />
+          <SignUpPhone />
         </SafeAreaView>
       </View>
     );

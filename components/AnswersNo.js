@@ -3,7 +3,7 @@ import { View, Text, Image } from "react-native";
 
 export default class AnswersBlock1 extends React.Component {
   render() {
-    const { id, question, uAnswer, answer, icon } = this.props;
+    const { id, question, uAnswer, answer } = this.props;
     const viewStyle = {
       flexDirection: "row"
     };

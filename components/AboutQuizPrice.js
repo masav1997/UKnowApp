@@ -1,17 +1,9 @@
 import React from 'react';
-import { View, Dimensions, ScrollView, Image, Text } from 'react-native';
-import NameBlock from './NameBlock';
-
+import { View, Dimensions, Image, Text } from 'react-native';
 const { width } = Dimensions.get('window');
 
 export default class AboutQuizPrice extends React.Component {
 	render() {
-		const logoStyle = {
-			top: 20,
-			height: 18.76,
-			width: 99,
-			alignSelf: 'center',
-		};
 		return (
 			<View
 				style={{

@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, Dimensions } from "react-native";
 
 export default class Button extends React.Component {
   render() {
-    const { width } = Dimensions.get("window");
     const { buttonTitle, onPress } = this.props;
     const buttonStyle = {
       backgroundColor: "#FF3358",

@@ -57,7 +57,7 @@ export default class MyQuiz extends React.Component {
 							/>
 						</View>
 					</View>
-					<AboutQuiz />
+					<AboutQuiz title="Викторина на знание истории отечетсвенного автопрома" descr1="Призовой фонд:" descr2="25 000 руб + подарки" descr3="Начнется через:" descr4="15 ч 15 мин" />
 					<View style={{ flexDirection: 'row', marginTop: 30 }}>
 					<View style={{ flex: 5 }}>
 							<Text

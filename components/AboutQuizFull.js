@@ -5,13 +5,7 @@ import NameBlock from './NameBlock';
 const { width } = Dimensions.get('window');
 
 export default class AboutQuizFull extends React.Component {
-	render() {
-		const logoStyle = {
-			top: 20,
-			height: 18.76,
-			width: 99,
-			alignSelf: 'center',
-		};
+	render() { 
 		return (
 			<View
 				style={{

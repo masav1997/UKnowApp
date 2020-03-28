@@ -3,7 +3,7 @@ import { View, Text, TextInput } from "react-native";
 
 export default class CodeInput extends React.Component {
   render() {
-    const { label, keyboardType, placeholder, ...props } = this.props;
+    const { label, keyboardType, placeholder } = this.props;
     const inputStyle = {
       flexDirection: "row",
       alignItems: "center",

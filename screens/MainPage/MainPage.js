@@ -64,7 +64,7 @@ export default class MainPageFilters extends React.Component {
 							/>
 						</View>
 					</View>
-					<AboutQuiz />
+					<AboutQuiz title="Викторина на знание истории отечетсвенного автопрома" descr1="Призовой фонд:" descr2="25 000 руб + подарки" descr3="Начнется через:" descr4="15 ч 15 мин" />
 					<Text
 						style={{
 							fontSize: 16,

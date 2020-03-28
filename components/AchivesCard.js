@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Dimensions, ScrollView, Image, Text } from 'react-native';
+import { View, Dimensions, Image, Text } from 'react-native';
 import ProgressCircle from 'react-native-progress-circle';
 
 const { width } = Dimensions.get('window');
@@ -7,13 +7,6 @@ const { width } = Dimensions.get('window');
 export default class AchivesCard extends React.Component {
 	render() {
 		const { percent, image, title } = this.props;
-
-		const logoStyle = {
-			top: 20,
-			height: 18.76,
-			width: 99,
-			alignSelf: 'center',
-		};
 		return (
 			<View
 				style={{
