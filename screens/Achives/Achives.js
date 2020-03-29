@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Dimensions, ScrollView, SafeAreaView } from 'react-native';
 import AchivesCard from '../../components/AchivesCard';
-import NavBar from '../../components/NavBar';
 import Header from '../../components/Header';
 import Title from '../../components/Title';
 import Logo from '../../components/Logo';

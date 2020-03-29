@@ -1,14 +1,17 @@
 import React from 'react';
 import { View, Dimensions, Image, Text, TouchableOpacity  } from 'react-native';
 const { width } = Dimensions.get('window');
+import { AppConsumer } from '../AppContextProvider';
 
 export default class AboutQuizPrice extends React.Component {
 	render() {
 		const { onPress } = this.props;
 		return (
+			<AppConsumer>
+				{appConsumer1 => (
 			<TouchableOpacity
 				style={{
-					backgroundColor: '#19232f',
+					backgroundColor: appConsumer1.theme.colors.card,
 					height: 'auto',
 					width: width - 30,
 					borderBottomLeftRadius: 16,
@@ -50,7 +53,7 @@ export default class AboutQuizPrice extends React.Component {
 							style={{
 								fontSize: 20,
 								fontWeight: 'bold',
-								color: '#FFFFFF',
+								color: appConsumer1.theme.colors.text,
 								textAlign: 'left',
 								marginBottom: 10,
 							}}
@@ -105,7 +108,7 @@ export default class AboutQuizPrice extends React.Component {
 								fontSize: 13,
 								lineHeight: 16,
 								fontWeight: '700',
-								color: '#FFF',
+								color: appConsumer1.theme.colors.text,
 								textAlign: 'left',
 							}}
 						>
@@ -114,6 +117,8 @@ export default class AboutQuizPrice extends React.Component {
 					</View>
 				</View>
 			</TouchableOpacity>
+			)}
+			</AppConsumer>
 		);
 	}
 }

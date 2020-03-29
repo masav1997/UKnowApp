@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Dimensions, Image, Text, TouchableOpacity } from 'react-native';
 import ProgressCircle from 'react-native-progress-circle';
+import { AppConsumer } from '../AppContextProvider';
 
 const { width } = Dimensions.get('window');
 
@@ -8,9 +9,11 @@ export default class AchivesCard extends React.Component {
 	render() {
 		const { percent, image, title, onPress } = this.props;
 		return (
+			<AppConsumer>
+				{appConsumer1 => (
 			<TouchableOpacity
 				style={{
-					backgroundColor: '#19232f',
+					backgroundColor: appConsumer1.theme.colors.card,
 					height: 'auto',
 					width: width / 2 - 30,
 					borderBottomLeftRadius: 16,
@@ -41,7 +44,7 @@ export default class AchivesCard extends React.Component {
 						fontStyle: 'normal',
 						fontSize: 16,
 						fontWeight: '600',
-						color: '#FFF',
+						color: appConsumer1.theme.colors.text,
 						textAlign: 'center',
 						marginTop: 10,
 						marginBottom: 15,
@@ -50,6 +53,8 @@ export default class AchivesCard extends React.Component {
 					{title}
 				</Text>
 			</TouchableOpacity>
+			)}
+			</AppConsumer>
 		);
 	}
 }

@@ -6,7 +6,7 @@ import Logo from '../../components/Logo';
 import PenIcon from '../../components/PenIcon';
 import NameBlock from '../../components/NameBlock';
 import WinBlock from '../../components/WinBlock';
-import NavBar from '../../components/NavBar';
+import { AppConsumer } from '../../AppContextProvider';
 import DescriptionBlock from '../../components/DescriptionBlock';
 
 const { width } = Dimensions.get('window');
@@ -14,17 +14,19 @@ const { width } = Dimensions.get('window');
 export default class EditQuiz extends React.Component {
 	render() {
 		return (
-			<View style={{ flex: 1, backgroundColor: '#19232F', alignItems: 'center' }}>
+			<AppConsumer>
+				{appConsumer1 => (
+			<View style={{ flex: 1, backgroundColor: appConsumer1.theme.colors.bg2, alignItems: 'center' }}>
 				<SafeAreaView
 					style={{
 						paddingTop: Platform.OS === 'android' ? 25 : 0,
 					}}
 				>
-					<View style={{ textAlign: 'center', backgroundColor: '#09121C' }}>
+					<View style={{ textAlign: 'center', backgroundColor: appConsumer1.theme.colors.gradient }}>
 						<ScrollView>
 							<View
 								style={{
-									backgroundColor: '#19232f',
+									backgroundColor: appConsumer1.theme.colors.bg2,
 									height: 'auto',
 									width: width,
 									borderBottomLeftRadius: 35,
@@ -267,6 +269,8 @@ export default class EditQuiz extends React.Component {
 					</View>
 				</SafeAreaView>
 			</View>
+			)}
+			</AppConsumer>
 		);
 	}
 }

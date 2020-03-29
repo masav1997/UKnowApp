@@ -8,12 +8,6 @@ export default class ControlTab extends React.Component {
 	render() {
 		const { selectedIndex, onTabPress } = this.props;
 
-		const viewTabStyle = {
-			width: width * 0.5,
-			alignSelf: 'center',
-			marginBottom: 50,
-		};
-
 		const tabStyle = {
 			borderColor: '#FF3358',
 			top: 35,

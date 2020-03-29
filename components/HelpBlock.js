@@ -17,7 +17,7 @@ export default class HelpBlock extends React.Component {
   render() {
     const { question, answer } = this.props;
     const viewStyle = {
-      backgroundColor: "#19232f",
+      backgroundColor: appConsumer1.theme.colors.card,
       height: "auto",
       borderTopRightRadius: 16,
       borderTopLeftRadius: 16,
@@ -27,7 +27,7 @@ export default class HelpBlock extends React.Component {
       marginBottom: 15
     };
     const viewStyle1 = {
-      backgroundColor: "#19232f",
+      backgroundColor: appConsumer1.theme.colors.card,
       height: "auto",
       borderTopRightRadius: 16,
       borderTopLeftRadius: 16,

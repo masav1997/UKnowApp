@@ -8,6 +8,7 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import InputBorder from '../../components/InputBorder';
 const { width } = Dimensions.get('window');
+import { AppConsumer } from '../../AppContextProvider';
 
 export default class CreateQuestion extends React.Component {
 	constructor(props) {
@@ -52,13 +53,15 @@ export default class CreateQuestion extends React.Component {
 
 	render() {
 		return (
-			<View style={{ flex: 1, backgroundColor: '#19232F', alignItems: 'center' }}>
+			<AppConsumer>
+				{appConsumer1 => (
+			<View style={{ flex: 1, backgroundColor: appConsumer1.theme.colors.bg1, alignItems: 'center' }}>
 				<SafeAreaView
 					style={{
 						paddingTop: Platform.OS === 'android' ? 25 : 0,
 					}}
 				>
-					<View style={{ textAlign: 'center', backgroundColor: '#09121C' }}>
+					<View style={{ textAlign: 'center', backgroundColor: appConsumer1.theme.colors.bg1 }}>
 						<ScrollView>
 							<View style={{ width: width }}>
 								<View style={{ marginLeft: 15, marginRight: 15 }}>
@@ -77,7 +80,7 @@ export default class CreateQuestion extends React.Component {
 							</View>
 							<View
 								style={{
-									backgroundColor: '#19232f',
+									backgroundColor: appConsumer1.theme.colors.card,
 									height: 'auto',
 									borderTopRightRadius: 16,
 									borderTopLeftRadius: 16,
@@ -112,7 +115,7 @@ export default class CreateQuestion extends React.Component {
 										onChangeText={text => this.setState({ answer1: text })}
 									/>
 									<Input
-										label="Ответ №2"
+										label="Ответ"
 										value={this.state.answer2}
 										onChangeText={text => this.setState({ answer2: text })}
 									/>
@@ -143,7 +146,7 @@ export default class CreateQuestion extends React.Component {
 							</View>
 							<View
 								style={{
-									backgroundColor: '#19232f',
+									backgroundColor: appConsumer1.theme.colors.card,
 									height: 'auto',
 									borderTopRightRadius: 16,
 									borderTopLeftRadius: 16,
@@ -164,7 +167,7 @@ export default class CreateQuestion extends React.Component {
 										color: '#898F97',
 									}}
 								>
-									Вопрос №2
+									Следующий вопрос
 								</Text>
 								{this.state.pressButton ? (
 									<TouchableOpacity
@@ -197,7 +200,7 @@ export default class CreateQuestion extends React.Component {
 											onChangeText={text => this.setState({ answer1: text })}
 										/>
 										<Input
-											label="Ответ №2"
+											label="Ответ"
 											value={this.state.answer2_1}
 											onChangeText={text => this.setState({ answer2: text })}
 										/>
@@ -219,7 +222,7 @@ export default class CreateQuestion extends React.Component {
 											</TouchableOpacity>
 										) : (
 											<Input
-												label="Ответ №3"
+												label="Ответ"
 												value={this.state.answer3_1}
 												onChangeText={text => this.setState({ answer2: text })}
 											/>
@@ -237,6 +240,8 @@ export default class CreateQuestion extends React.Component {
 					</View>
 				</SafeAreaView>
 			</View>
+			)}
+			</AppConsumer>
 		);
 	}
 }

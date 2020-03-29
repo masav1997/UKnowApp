@@ -15,7 +15,7 @@ export default class Quizes extends React.Component {
 						paddingTop: Platform.OS === 'android' ? 25 : 0,
 					}}
 				>
-					<View style={{ textAlign: 'center', backgroundColor: '#09121C' }}>
+					<View style={{ textAlign: 'center', backgroundColor: '#19232F' }}>
 						<ScrollView>
 							<View style={{ width: width }}>
 								<View style={{ marginLeft: 15, marginRight: 15 }}>

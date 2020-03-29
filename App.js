@@ -38,6 +38,8 @@ import Participants from './screens/Participants/Participants';
 import Fonds from './screens/Fonds/Fonds';
 import Quizes from './screens/Quizes/Quizes';
 
+import { AppContextProvider} from './AppContextProvider';
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const { width } = Dimensions.get('window');
@@ -49,6 +51,7 @@ export default class App extends React.Component {
 
 	render() {
 		return (
+			<AppContextProvider>
 			<NavigationContainer>
 				<StatusBar barStyle="light-content" />
 				<Stack.Navigator
@@ -303,6 +306,7 @@ export default class App extends React.Component {
 					<Stack.Screen name="Quizes" component={Quizes} />
 				</Stack.Navigator>
 			</NavigationContainer>
+			</AppContextProvider>
 		);
 	}
 }

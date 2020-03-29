@@ -21,7 +21,8 @@ export default class SignUpPhone extends React.Component {
 		this.state = {
 			customStyleIndex: 0,
 		};
-	}
+	};
+	
 	handleCustomIndexSelect = (index) => {
 		this.setState(prevState => ({ ...prevState, customStyleIndex: index }));
 	};

@@ -5,13 +5,16 @@ import Header from '../../components/Header';
 import HeaderTitle from '../../components/HeaderTitle';
 import Quit from '../../components/Quit';
 import { ScrollView } from 'react-native-gesture-handler';
+import { AppConsumer } from '../../AppContextProvider';
 
 const { height, width } = Dimensions.get('window');
 
 export default class FinishCreate extends React.Component {
 	render() {
 		return (
-			<View style={{ flex: 1, backgroundColor: '#19232F', alignItems: 'center' }}>
+			<AppConsumer>
+				{appConsumer1 => (
+			<View style={{ flex: 1, backgroundColor: appConsumer1.theme.colors.bg1, alignItems: 'center' }}>
 				<SafeAreaView
 					style={{
 						paddingTop: Platform.OS === 'android' ? 25 : 0,
@@ -57,7 +60,7 @@ export default class FinishCreate extends React.Component {
 							</Text>
 							<View
 								style={{
-									backgroundColor: '#09121C',
+									backgroundColor: appConsumer1.theme.colors.card,
 									height: 'auto',
 									borderTopRightRadius: 16,
 									borderTopLeftRadius: 16,
@@ -98,7 +101,7 @@ export default class FinishCreate extends React.Component {
 											style={{
 												fontSize: 20,
 												fontWeight: 'bold',
-												color: '#FFFFFF',
+												color: appConsumer1.theme.colors.text,
 												textAlign: 'left',
 												marginBottom: 10,
 											}}
@@ -172,6 +175,8 @@ export default class FinishCreate extends React.Component {
 					</View>
 				</SafeAreaView>
 			</View>
+			)}
+			</AppConsumer>
 		);
 	}
 }

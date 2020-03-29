@@ -14,9 +14,8 @@ import BackButton from '../../components/BackButton';
 import HistoryBlock from '../../components/HistoryBlock';
 import Logo from '../../components/Logo';
 import AboutQuizFull from '../../components/AboutQuizFull';
-import WinBlock from '../../components/WinBlock';
 import DescriptionBlock from '../../components/DescriptionBlock';
-import Modal from 'react-native-modal';
+import { AppConsumer } from '../../AppContextProvider';
 
 const { width } = Dimensions.get('window');
 
@@ -34,13 +33,15 @@ export default class AboutFond extends React.Component {
 	};
 	render() {
 		return (
-			<View style={{ flex: 1, backgroundColor: '#19232F', alignItems: 'center' }}>
+			<AppConsumer>
+				{appConsumer1 => (
+			<View style={{ flex: 1, backgroundColor: appConsumer1.theme.colors.gradient, alignItems: 'center' }}>
 				<SafeAreaView
 					style={{
 						paddingTop: Platform.OS === 'android' ? 25 : 0,
 					}}
 				>
-					<View style={{ textAlign: 'center', backgroundColor: '#09121C' }}>
+					<View style={{ textAlign: 'center', backgroundColor: appConsumer1.theme.colors.gradient, }}>
 						<ScrollView>
 							<ImageBackground
 								blurRadius={10}
@@ -172,6 +173,8 @@ export default class AboutFond extends React.Component {
 					</View>
 				</SafeAreaView>
 			</View>
+			)}
+			</AppConsumer>
 		);
 	}
 }
