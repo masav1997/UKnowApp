@@ -3,12 +3,8 @@ import { Image, View, TouchableOpacity } from 'react-native';
 
 export default class PlusButton extends React.Component {
 	render() {
-		const logoStyle = {
-			top: 20,
-			height: 18.76,
-			width: 99,
-			alignSelf: 'center',
-		};
+		const { onPress } = this.props;
+
 		return (
 			<TouchableOpacity
 				style={{
@@ -24,6 +20,7 @@ export default class PlusButton extends React.Component {
 					paddingTop: 15,
 					alignItems: 'center',
 				}}
+				onPress={onPress}
 			>
 				<Image source={require('../assets/icons/plus.png')} style={{ width: 16, height: 16, bottom: 3 }} />
 			</TouchableOpacity>

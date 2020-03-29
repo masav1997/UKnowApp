@@ -1,19 +1,11 @@
 import React from 'react';
-import { View, Dimensions, ScrollView, Image, TextInput } from 'react-native';
-import ProgressCircle from 'react-native-progress-circle';
+import { View, Dimensions, Image, TextInput, TouchableOpacity} from 'react-native';
 
 const { width } = Dimensions.get('window');
 
 export default class SearchBlock extends React.Component {
 	render() {
-		const { percent, image, title } = this.props;
-
-		const logoStyle = {
-			top: 20,
-			height: 18.76,
-			width: 99,
-			alignSelf: 'center',
-		};
+		const { onPress } = this.props;
 		return (
 			<View
 				style={{
@@ -40,12 +32,12 @@ export default class SearchBlock extends React.Component {
 				<View style={{ flex: 10 }}>
 					<TextInput style={{ bottom: 10, marginLeft: 10, marginRight: 10, color: '#FFF' }} />
 				</View>
-				<View style={{ flex: 1, alignContent: 'flex-end' }}>
+				<TouchableOpacity style={{ flex: 1, alignContent: 'flex-end' }} onPress={onPress}>
 					<Image
 						source={require('../assets/icons/filter.png')}
 						style={{ width: 20, height: 20, bottom: 10, tintColor:'#898F97'}}
 					/>
-				</View>
+				</TouchableOpacity>
 			</View>
 		);
 	}

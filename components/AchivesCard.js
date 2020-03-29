@@ -1,14 +1,14 @@
 import React from 'react';
-import { View, Dimensions, Image, Text } from 'react-native';
+import { View, Dimensions, Image, Text, TouchableOpacity } from 'react-native';
 import ProgressCircle from 'react-native-progress-circle';
 
 const { width } = Dimensions.get('window');
 
 export default class AchivesCard extends React.Component {
 	render() {
-		const { percent, image, title } = this.props;
+		const { percent, image, title, onPress } = this.props;
 		return (
-			<View
+			<TouchableOpacity
 				style={{
 					backgroundColor: '#19232f',
 					height: 'auto',
@@ -24,6 +24,7 @@ export default class AchivesCard extends React.Component {
 					paddingTop: 15,
 					alignItems: 'center',
 				}}
+				onPress={onPress}
 			>
 				<ProgressCircle
 					percent={percent}
@@ -48,7 +49,7 @@ export default class AchivesCard extends React.Component {
 				>
 					{title}
 				</Text>
-			</View>
+			</TouchableOpacity>
 		);
 	}
 }

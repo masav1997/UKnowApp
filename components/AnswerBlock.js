@@ -6,11 +6,12 @@ export default class AnswerBlock extends React.Component {
     super(props);
     this.state = { pressStatus: true };
   }
-  _onHideUnderlay() {
-    this.setState({ pressStatus: false });
-  }
   _onShowUnderlay() {
-    this.setState({ pressStatus: false });
+    if (!this.state.pressStatus) {
+      this.setState({ pressStatus: true });
+    } else {
+      this.setState({ pressStatus: false });
+    }
   }
   render() {
     const { answer, id } = this.props;
@@ -74,8 +75,7 @@ export default class AnswerBlock extends React.Component {
         </View>
         <View style={{ flex: 4 }}>
           <TouchableOpacity
-            onPressIn={this._onShowUnderlay.bind(this)}
-            onPressOut={this._onHideUnderlay.bind(this)}
+            onPress={this._onShowUnderlay.bind(this)}
           >
             <Text style={answerStyle}>{answer}</Text>
           </TouchableOpacity>

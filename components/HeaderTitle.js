@@ -8,7 +8,7 @@ export default class HeaderTitle extends React.Component {
       fontStyle: "normal",
       fontSize: 16,
       lineHeight: 20,
-      top: 25,
+      top: 20,
       fontWeight: "500",
       color: "#FFFFFF",
       textAlign: 'center'

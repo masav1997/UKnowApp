@@ -5,10 +5,11 @@ export default class Header extends React.Component {
   render() {
     const { left, center, right } = this.props;
     const headerStyle = {
+      top: -10,
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "center",
-      marginBottom: 40,
+      marginBottom: 30,
     };
     const leftStyle = {
       flex: 1

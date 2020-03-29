@@ -3,17 +3,17 @@ import { Text, TouchableOpacity } from "react-native";
 
 export default class HeaderRedTitle extends React.Component {
   render() {
-    const { title } = this.props;
+    const { title, onPress } = this.props;
     const clearText = {
         fontStyle: "normal",
         fontSize: 16,
         lineHeight: 20,
-        top: 25,
+        top: 20,
         fontWeight: "500",
         color: "#FF3358"
     };
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onPress}>
         <Text style={clearText}>{title}</Text>
       </TouchableOpacity>
     );

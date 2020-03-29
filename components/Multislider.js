@@ -79,15 +79,19 @@ export default class Multislider extends React.Component {
           max={100}
           step={1}
           selectedStyle={{
-            backgroundColor: "#FF3358"
+            backgroundColor: "#FF3358",
+            height:4,
           }}
           unselectedStyle={{
-            backgroundColor: "#9597A1"
+            backgroundColor: "#9597A1",
+            height:4,
+            borderRadius: 6
           }}
           markerStyle={{
             backgroundColor: "#FFFFFF",
             width: 13,
-            height: 13
+            height: 13,
+            top:1
           }}
         />
       </View>

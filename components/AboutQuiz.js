@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Dimensions, Text } from 'react-native';
+import { View, Dimensions, Text, TouchableOpacity } from 'react-native';
 import NameBlock from '../components/NameBlock';
 
 const { width } = Dimensions.get('window');
 
-export default class AboutQuiz extends React.Component {
+export default class AboutQuizBlock extends React.Component {
 	render() {
-    const { title, descr1, descr2, descr3, descr4 } = this.props;
+    const { title, descr1, descr2, descr3, descr4, onPress } = this.props;
 
 		const viewStyle = {
 			backgroundColor: '#19232f',
@@ -58,12 +58,21 @@ export default class AboutQuiz extends React.Component {
 			textAlign: 'left',
 		};
 
+		const textStyle4 = {
+			fontStyle: 'normal',
+			fontSize: 20,
+			fontWeight: 'bold',
+			color: '#FFF',
+			textAlign: 'left',
+			marginBottom: 10
+		};
+
 		return (
-			<View style={viewStyle}>
+			<TouchableOpacity style={viewStyle} onPress={onPress}>
 				<NameBlock name="Imam Farrhouk" image={require('../assets/icons/avatar.png')} />
 				<View style={{ flexDirection: 'row' }}>
 					<View style={{ flex: 1, height: 'auto', marginTop: 15 }}>
-						<Text style={textStyle1}>{title}</Text>
+						<Text style={textStyle4}>{title}</Text>
 					</View>
 				</View>
 				<View style={{ flexDirection: 'row' }}>
@@ -76,7 +85,7 @@ export default class AboutQuiz extends React.Component {
 						<Text style={textStyle3}>{descr4}</Text>
 					</View>
 				</View>
-			</View>
+			</TouchableOpacity>
 		);
 	}
 }

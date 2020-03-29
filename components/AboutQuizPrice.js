@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Dimensions, Image, Text } from 'react-native';
+import { View, Dimensions, Image, Text, TouchableOpacity  } from 'react-native';
 const { width } = Dimensions.get('window');
 
 export default class AboutQuizPrice extends React.Component {
 	render() {
+		const { onPress } = this.props;
 		return (
-			<View
+			<TouchableOpacity
 				style={{
 					backgroundColor: '#19232f',
 					height: 'auto',
@@ -13,13 +14,13 @@ export default class AboutQuizPrice extends React.Component {
 					borderBottomLeftRadius: 16,
 					borderTopRightRadius: 16,
 					borderTopLeftRadius: 16,
-					marginTop: 15,
 					marginBottom: 15,
 					marginRight: 10,
 					marginLeft: 15,
 					paddingLeft: 15,
 					paddingRight: 15,
 				}}
+				onPress={onPress}
 			>
 				<View style={{ flexDirection: 'row', marginTop: 15 }}>
 					<View style={{ flex: 1, height: 28 }}>
@@ -112,7 +113,7 @@ export default class AboutQuizPrice extends React.Component {
 						</Text>
 					</View>
 				</View>
-			</View>
+			</TouchableOpacity>
 		);
 	}
 }

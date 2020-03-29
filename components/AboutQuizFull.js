@@ -1,13 +1,14 @@
 import React from 'react';
-import { View, Dimensions, ScrollView, Image, Text } from 'react-native';
+import { View, Dimensions, TouchableOpacity, Image, Text } from 'react-native';
 import NameBlock from './NameBlock';
 
 const { width } = Dimensions.get('window');
 
 export default class AboutQuizFull extends React.Component {
 	render() { 
+		const { onPress } = this.props;
 		return (
-			<View
+			<TouchableOpacity
 				style={{
 					backgroundColor: '#19232f',
 					height: 'auto',
@@ -19,7 +20,9 @@ export default class AboutQuizFull extends React.Component {
 					marginLeft: 15,
 					paddingLeft: 15,
 					paddingRight: 15,
+					marginBottom:15
 				}}
+				onPress={onPress}
 			>
 				<NameBlock name="Imam Farrhouk" image={require('../assets/icons/avatar.png')} />
 				<View style={{ flexDirection: 'row', marginTop: 20 }}>
@@ -113,7 +116,7 @@ export default class AboutQuizFull extends React.Component {
 						</Text>
 					</View>
 				</View>
-			</View>
+			</TouchableOpacity>
 		);
 	}
 }

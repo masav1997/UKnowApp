@@ -3,6 +3,7 @@ import { Image } from "react-native";
 
 export default class BackButton extends React.Component {
   render() {
+    const { onPress } = this.props;
     const logoStyle = {
         top: 22,
         height: 25,

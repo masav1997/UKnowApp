@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, Image, ScrollView } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 
 export default class WinBlock extends React.Component {
 	render() {
-		const { name, image, data } = this.props;
+		const { name, image, data, onPress } = this.props;
 		const textTitleStyle = {
 			fontStyle: 'normal',
 			fontWeight: 'bold',
@@ -43,7 +43,7 @@ export default class WinBlock extends React.Component {
 			marginTop: 5,
 		};
 		return (
-			<View style={{ flexDirection: 'row' }}>
+			<TouchableOpacity style={{ flexDirection: 'row' }} onPress={onPress}>
 				<View
 					style={{
 						backgroundColor: '#19232f',
@@ -84,7 +84,7 @@ export default class WinBlock extends React.Component {
 						{data}
 					</Text>
 				</View>
-			</View>
+			</TouchableOpacity>
 		);
 	}
 }

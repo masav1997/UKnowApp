@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 
 export default class Title extends React.Component {
   render() {
-    const { title, subtitle, linkTitle, boldTitle } = this.props;
+    const { title, subtitle, linkTitle, boldTitle, onPress } = this.props;
     const textTitleStyle = {
       fontStyle: "normal",
       fontWeight: "bold",
@@ -48,7 +48,7 @@ export default class Title extends React.Component {
         <View style={descriptionStyle}>
           <Text style={descriptionTextStyle}>
             {subtitle}
-            <Text style={descriptionTextLinkStyle}> {linkTitle}</Text>
+            <Text style={descriptionTextLinkStyle} onPress={onPress}> {linkTitle}</Text>
             <Text style={descriptionTextBoldStyle}> {boldTitle}</Text>
           </Text>
         </View>
