@@ -22,7 +22,7 @@ export default class Participants extends React.Component {
 							<Header
 								left={
 									<TouchableOpacity onPress={() => this.props.navigation.navigate('MainPage')}>
-										<View style={{ width: 30, height: 30, top: 5 }}>
+										<View style={{ width: 40, height: 35, top: 5 }}>
 											<Quit />
 										</View>
 									</TouchableOpacity>

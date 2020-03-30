@@ -22,7 +22,7 @@ export default class SignInPhone extends React.Component {
 			customStyleIndex: 0,
 		};
 	}
-	handleCustomIndexSelect = (index) => {
+	handleCustomIndexSelect = index => {
 		this.setState(prevState => ({ ...prevState, customStyleIndex: index }));
 	};
 

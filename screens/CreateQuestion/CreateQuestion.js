@@ -55,192 +55,208 @@ export default class CreateQuestion extends React.Component {
 		return (
 			<AppConsumer>
 				{appConsumer1 => (
-			<View style={{ flex: 1, backgroundColor: appConsumer1.theme.colors.bg1, alignItems: 'center' }}>
-				<SafeAreaView
-					style={{
-						paddingTop: Platform.OS === 'android' ? 25 : 0,
-					}}
-				>
-					<View style={{ textAlign: 'center', backgroundColor: appConsumer1.theme.colors.bg1 }}>
-						<ScrollView>
-							<View style={{ width: width }}>
-								<View style={{ marginLeft: 15, marginRight: 15 }}>
-									<Header
-										left={
-											<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-												<View style={{ width: 60, height: 50, top: 10 }}>
-													<BackButton />
-												</View>
-											</TouchableOpacity>
-										}
-										center={<HeaderTitle title="Создание викторины" />}
-										right={<HeaderRedTitle title="Очистить" />}
-									/>
-								</View>
-							</View>
-							<View
-								style={{
-									backgroundColor: appConsumer1.theme.colors.card,
-									height: 'auto',
-									borderTopRightRadius: 16,
-									borderTopLeftRadius: 16,
-									borderBottomLeftRadius: 16,
-									marginLeft: 15,
-									marginRight: 15,
-									marginBottom: 15,
-								}}
-							>
-								<Text
-									style={{
-										fontSize: 16,
-										fontWeight: '500',
-										lineHeight: 20,
-										marginTop: 15,
-										marginBottom: 15,
-										marginLeft: 15,
-										color: '#898F97',
-									}}
-								>
-									Вопрос №1
-								</Text>
-								<View style={{ marginLeft: 15, marginRight: 15, marginBottom: 10 }}>
-									<Input
-										label="Текст вопроса"
-										value={this.state.question}
-										onChangeText={text => this.setState({ question: text })}
-									/>
-									<InputBorder
-										label="Верный ответ"
-										value={this.state.answer1}
-										onChangeText={text => this.setState({ answer1: text })}
-									/>
-									<Input
-										label="Ответ"
-										value={this.state.answer2}
-										onChangeText={text => this.setState({ answer2: text })}
-									/>
-
-									{this.state.pressInput ? (
-										<TouchableOpacity onPress={this._onShowInput.bind(this)}>
-											<Text
-												style={{
-													fontSize: 13,
-													fontWeight: '500',
-													lineHeight: 16,
-													marginBottom: 10,
-													textAlign: 'center',
-													color: '#FF3358',
-												}}
-											>
-												+ Вариант ответа
-											</Text>
-										</TouchableOpacity>
-									) : (
-										<Input
-											label="Ответ №3"
-											value={this.state.answer3}
-											onChangeText={text => this.setState({ answer3: text })}
-										/>
-									)}
-								</View>
-							</View>
-							<View
-								style={{
-									backgroundColor: appConsumer1.theme.colors.card,
-									height: 'auto',
-									borderTopRightRadius: 16,
-									borderTopLeftRadius: 16,
-									borderBottomLeftRadius: 16,
-									marginLeft: 15,
-									marginRight: 15,
-									marginBottom: 15,
-								}}
-							>
-								<Text
-									style={{
-										fontSize: 16,
-										fontWeight: '500',
-										lineHeight: 20,
-										marginTop: 15,
-										marginBottom: 15,
-										marginLeft: 15,
-										color: '#898F97',
-									}}
-								>
-									Следующий вопрос
-								</Text>
-								{this.state.pressButton ? (
-									<TouchableOpacity
-										style={{ marginLeft: 15, marginRight: 15, marginBottom: 10 }}
-										onPress={this._onShowCard.bind(this)}
+					<View style={{ flex: 1, backgroundColor: appConsumer1.theme.colors.bg1, alignItems: 'center' }}>
+						<SafeAreaView
+							style={{
+								paddingTop: Platform.OS === 'android' ? 25 : 0,
+							}}
+						>
+							<View style={{ textAlign: 'center', backgroundColor: appConsumer1.theme.colors.bg1 }}>
+								<ScrollView>
+									<View style={{ width: width }}>
+										<View style={{ marginLeft: 15, marginRight: 15 }}>
+											<Header
+												left={
+													<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+														<View style={{ width: 60, height: 50, top: 10 }}>
+															<BackButton />
+														</View>
+													</TouchableOpacity>
+												}
+												center={<HeaderTitle title="Создание викторины" />}
+												right={<HeaderRedTitle title="Очистить" />}
+											/>
+										</View>
+									</View>
+									<View
+										style={{
+											backgroundColor: appConsumer1.theme.colors.card,
+											height: 'auto',
+											borderTopRightRadius: 16,
+											borderTopLeftRadius: 16,
+											borderBottomLeftRadius: 16,
+											marginLeft: 15,
+											marginRight: 15,
+											marginBottom: 15,
+										}}
 									>
 										<Text
 											style={{
 												fontSize: 16,
-												fontWeight: 'bold',
+												fontWeight: '500',
 												lineHeight: 20,
-												marginBottom: 10,
-												textAlign: 'center',
-												color: '#FF3358',
+												marginTop: 15,
+												marginBottom: 15,
+												marginLeft: 15,
+												color: '#898F97',
 											}}
 										>
-											+ Ещё вопрос
+											Вопрос
 										</Text>
-									</TouchableOpacity>
-								) : (
-									<View style={{ marginLeft: 15, marginRight: 15, marginBottom: 10 }}>
-										<Input
-											label="Текст вопроса"
-											value={this.state.question1}
-											onChangeText={text => this.setState({ question1: text })}
-										/>
-										<InputBorder
-											label="Верный ответ"
-											value={this.state.answer1_1}
-											onChangeText={text => this.setState({ answer1: text })}
-										/>
-										<Input
-											label="Ответ"
-											value={this.state.answer2_1}
-											onChangeText={text => this.setState({ answer2: text })}
-										/>
+										<View style={{ marginLeft: 15, marginRight: 15, marginBottom: 10 }}>
+											<Input
+												label="Текст вопроса"
+												value={this.state.question}
+												onChangeText={text => this.setState({ question: text })}
+											/>
+											<InputBorder
+												label="Верный ответ"
+												value={this.state.answer1}
+												onChangeText={text => this.setState({ answer1: text })}
+											/>
+											<Input
+												label="Ответ"
+												value={this.state.answer2}
+												onChangeText={text => this.setState({ answer2: text })}
+											/>
 
-										{this.state.pressInput1 ? (
-											<TouchableOpacity onPress={this._onShowInput1.bind(this)}>
+											{this.state.pressInput ? (
+												<TouchableOpacity onPress={this._onShowInput.bind(this)}>
+													<Text
+														style={{
+															fontSize: 13,
+															fontWeight: '500',
+															lineHeight: 16,
+															marginBottom: 10,
+															textAlign: 'center',
+															color: '#FF3358',
+														}}
+													>
+														+ Вариант ответа
+													</Text>
+												</TouchableOpacity>
+											) : (
+												<View>
+													<Input
+														label="Ответ"
+														value={this.state.answer3}
+														onChangeText={text => this.setState({ answer3: text })}
+													/>
+													<TouchableOpacity onPress={this._onShowInput.bind(this)}>
+														<Text
+															style={{
+																fontSize: 13,
+																fontWeight: '500',
+																lineHeight: 16,
+																marginBottom: 10,
+																textAlign: 'center',
+																color: '#FF3358',
+															}}
+														>
+															+ Вариант ответа
+														</Text>
+													</TouchableOpacity>
+												</View>
+											)}
+										</View>
+									</View>
+									<View
+										style={{
+											backgroundColor: appConsumer1.theme.colors.card,
+											height: 'auto',
+											borderTopRightRadius: 16,
+											borderTopLeftRadius: 16,
+											borderBottomLeftRadius: 16,
+											marginLeft: 15,
+											marginRight: 15,
+											marginBottom: 15,
+										}}
+									>
+										<Text
+											style={{
+												fontSize: 16,
+												fontWeight: '500',
+												lineHeight: 20,
+												marginTop: 15,
+												marginBottom: 15,
+												marginLeft: 15,
+												color: '#898F97',
+											}}
+										>
+											Следующий вопрос
+										</Text>
+										{this.state.pressButton ? (
+											<TouchableOpacity
+												style={{ marginLeft: 15, marginRight: 15, marginBottom: 10 }}
+												onPress={this._onShowCard.bind(this)}
+											>
 												<Text
 													style={{
-														fontSize: 13,
-														fontWeight: '500',
-														lineHeight: 16,
+														fontSize: 16,
+														fontWeight: 'bold',
+														lineHeight: 20,
 														marginBottom: 10,
 														textAlign: 'center',
 														color: '#FF3358',
 													}}
 												>
-													+ Вариант ответа
+													+ Ещё вопрос
 												</Text>
 											</TouchableOpacity>
 										) : (
-											<Input
-												label="Ответ"
-												value={this.state.answer3_1}
-												onChangeText={text => this.setState({ answer2: text })}
-											/>
+											<View style={{ marginLeft: 15, marginRight: 15, marginBottom: 10 }}>
+												<Input
+													label="Текст вопроса"
+													value={this.state.question1}
+													onChangeText={text => this.setState({ question1: text })}
+												/>
+												<InputBorder
+													label="Верный ответ"
+													value={this.state.answer1_1}
+													onChangeText={text => this.setState({ answer1: text })}
+												/>
+												<Input
+													label="Ответ"
+													value={this.state.answer2_1}
+													onChangeText={text => this.setState({ answer2: text })}
+												/>
+
+												{this.state.pressInput1 ? (
+													<TouchableOpacity onPress={this._onShowInput1.bind(this)}>
+														<Text
+															style={{
+																fontSize: 13,
+																fontWeight: '500',
+																lineHeight: 16,
+																marginBottom: 10,
+																textAlign: 'center',
+																color: '#FF3358',
+															}}
+														>
+															+ Вариант ответа
+														</Text>
+													</TouchableOpacity>
+												) : (
+													<Input
+														label="Ответ"
+														value={this.state.answer3_1}
+														onChangeText={text => this.setState({ answer2: text })}
+													/>
+												)}
+											</View>
 										)}
 									</View>
-								)}
+								</ScrollView>
+								<View style={{ marginLeft: 15, marginRight: 15, marginTop: 15 }}>
+									<Button
+										buttonTitle="Продолжить"
+										onPress={() => this.props.navigation.navigate('FinishCreate')}
+									/>
+								</View>
 							</View>
-						</ScrollView>
-						<View style={{ marginLeft: 15, marginRight: 15, marginTop: 15 }}>
-							<Button
-								buttonTitle="Продолжить"
-								onPress={() => this.props.navigation.navigate('FinishCreate')}
-							/>
-						</View>
+						</SafeAreaView>
 					</View>
-				</SafeAreaView>
-			</View>
-			)}
+				)}
 			</AppConsumer>
 		);
 	}

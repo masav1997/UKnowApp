@@ -31,7 +31,7 @@ export default class MainPageFilters extends React.Component {
 										<Title title="Викторины" />
 									</View>
 									<View style={{ flex: 1 }}>
-										<PlusButton />
+										<PlusButton onPress={() => this.props.navigation.navigate('CreateQuiz')}/>
 									</View>
 								</View>
 							</View>

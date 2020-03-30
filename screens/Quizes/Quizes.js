@@ -5,17 +5,20 @@ import HeaderTitle from '../../components/HeaderTitle';
 import AboutQuizFull from '../../components/AboutQuizFull';
 import BackButton from '../../components/BackButton';
 const { width } = Dimensions.get('window');
+import { AppConsumer } from '../../AppContextProvider';
 
 export default class Quizes extends React.Component {
 	render() {
 		return (
-			<View style={{ flex: 1, backgroundColor: '#19232F', alignItems: 'center' }}>
+			<AppConsumer>
+			{appConsumer1 => (
+			<View style={{ flex: 1, backgroundColor: appConsumer1.theme.colors.bg1, alignItems: 'center' }}>
 				<SafeAreaView
 					style={{
 						paddingTop: Platform.OS === 'android' ? 25 : 0,
 					}}
 				>
-					<View style={{ textAlign: 'center', backgroundColor: '#19232F' }}>
+					<View style={{ textAlign: 'center', backgroundColor: appConsumer1.theme.colors.bg1, }}>
 						<ScrollView>
 							<View style={{ width: width }}>
 								<View style={{ marginLeft: 15, marginRight: 15 }}>
@@ -39,6 +42,8 @@ export default class Quizes extends React.Component {
 					</View>
 				</SafeAreaView>
 			</View>
+							)}
+							</AppConsumer>
 		);
 	}
 }

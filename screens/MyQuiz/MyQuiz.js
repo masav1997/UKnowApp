@@ -17,7 +17,7 @@ export default class MyQuiz extends React.Component {
 		return (
 			<AppConsumer>
 				{appConsumer1 => (
-					<View style={{ flex: 1, backgroundColor: appConsumer1.theme.colors.bg2, alignItems: 'center' }}>
+					<View style={{ flex: 1, backgroundColor: appConsumer1.theme.colors.bg1, alignItems: 'center' }}>
 						<SafeAreaView
 							style={{
 								paddingTop: Platform.OS === 'android' ? 25 : 0,
@@ -27,7 +27,7 @@ export default class MyQuiz extends React.Component {
 								style={{
 									textAlign: 'center',
 									textAlign: 'center',
-									backgroundColor: appConsumer1.theme.colors.bg2,
+									backgroundColor: appConsumer1.theme.colors.bg1,
 								}}
 							>
 								<ScrollView>

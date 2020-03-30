@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Dimensions, SafeAreaView, TouchableOpacity, Tex
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Logo from '../../components/Logo';
-import BackButton from '../../components/BackButton'; 
+import BackButton from '../../components/BackButton';
 import Title from '../../components/Title';
 
 const { width } = Dimensions.get('window');

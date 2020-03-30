@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default class RadioButton extends Component {
 	state = {
-        value: null,
+		value: null,
 	};
 
 	render() {
@@ -22,8 +22,8 @@ export default class RadioButton extends Component {
 										this.setState({
 											value: item.key,
 										});
-                                    }}
-                                    onPressIn={onPress}
+									}}
+									onPressIn={onPress}
 								>
 									{value === item.key && <View style={styles.checkedCircle} />}
 								</TouchableOpacity>

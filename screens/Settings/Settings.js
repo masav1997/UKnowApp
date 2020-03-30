@@ -79,8 +79,10 @@ export default class Settings extends React.Component {
 												onValueChange={this.toggleSwitch}
 												onChange={() =>
 													this.state.switchValue
-														? (appConsumer1.updateTheme(DarkTheme), this.setState({switchValue: true}))
-														: (appConsumer1.updateTheme(LightTheme), this.setState({switchValue: false}))
+														? (appConsumer1.updateTheme(DarkTheme),
+														  this.setState({ switchValue: true }))
+														: (appConsumer1.updateTheme(LightTheme),
+														  this.setState({ switchValue: false }))
 												}
 												value={this.state.switchValue}
 												trackColor={{ false: '#898F97', true: '#FF3358' }}

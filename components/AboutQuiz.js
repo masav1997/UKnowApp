@@ -55,7 +55,18 @@ export default class AboutQuizBlock extends React.Component {
 						}}
 						onPress={onPress}
 					>
-						<NameBlock name="Imam Farrhouk" image={require('../assets/icons/avatar.png')} />
+						<NameBlock
+							name="Imam Farrhouk"
+							image={require('../assets/icons/avatar.png')}
+							style={{
+								fontWeight: '600',
+								fontSize: 13,
+								color: appConsumer1.theme.colors.text,
+								fontWeight: '800',
+								textAlign: 'left',
+								top: 16,
+							}}
+						/>
 						<View style={{ flexDirection: 'row' }}>
 							<View style={{ flex: 1, height: 'auto', marginTop: 15 }}>
 								<Text

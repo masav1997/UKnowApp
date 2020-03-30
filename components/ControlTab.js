@@ -1,10 +1,7 @@
 import React from 'react';
-import { View, Dimensions } from 'react-native';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
-const { width } = Dimensions.get('window');
 
 export default class ControlTab extends React.Component {
-
 	render() {
 		const { selectedIndex, onTabPress } = this.props;
 
@@ -26,16 +23,15 @@ export default class ControlTab extends React.Component {
 		};
 
 		return (
-					<SegmentedControlTab
-						values={['Телефон', 'Почта']}
-						selectedIndex={selectedIndex}
-						onTabPress={onTabPress}
-						borderRadius={15}
-						tabStyle={tabStyle}
-						activeTabStyle={activeTabStyle}
-						tabTextStyle={tabTextStyle}
-					/>
-
+			<SegmentedControlTab
+				values={['Телефон', 'Почта']}
+				selectedIndex={selectedIndex}
+				onTabPress={onTabPress}
+				borderRadius={15}
+				tabStyle={tabStyle}
+				activeTabStyle={activeTabStyle}
+				tabTextStyle={tabTextStyle}
+			/>
 		);
 	}
 }

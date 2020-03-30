@@ -4,7 +4,7 @@ import { AppConsumer } from '../AppContextProvider';
 
 export default class WinBlock extends React.Component {
 	render() {
-		const { name, image, data, onPress } = this.props;
+		const { name, image, data, onPress, style } = this.props;
 		return (
 			<AppConsumer>
 				{appConsumer1 => (
@@ -23,7 +23,7 @@ export default class WinBlock extends React.Component {
 								paddingRight: 15,
 							}}
 						>
-							<Image source={image} style={{ width: 30, height: 30, top: 10, marginRight: 10, tintColor:appConsumer1.theme.colors.text,}} />
+							<Image source={image} style={style} />
 							<Text
 								style={{
 									fontWeight: '600',

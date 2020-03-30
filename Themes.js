@@ -23,7 +23,7 @@ export const LightTheme = {
         bg2: '#222327',
         input: '#2A2D36',
         card: '#FFFFFF',
-        text: '#313745',
+        text: '#222327',
         gradient: '#313745',
         border: '#545964',
         bar:'#222327'

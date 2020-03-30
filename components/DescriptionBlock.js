@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { Text, Image, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { AppConsumer } from '../AppContextProvider';
 
@@ -25,7 +25,7 @@ export default class DescriptionBlock extends React.Component {
 						<Text
 							style={{
 								fontSize: 16,
-								color: "#FFFFFF",
+								color: '#FFFFFF',
 								textAlign: 'left',
 								marginBottom: 35,
 								marginLeft: 15,
@@ -60,25 +60,25 @@ export default class DescriptionBlock extends React.Component {
 				)}
 			</AppConsumer>
 		) : (
-      <AppConsumer>
+			<AppConsumer>
 				{appConsumer1 => (
-			<TouchableOpacity onPress={this._onShowUnderlay.bind(this)}>
-				<Text
-					style={{
-						fontSize: 16,
-						color: "#FFFFFF",
-						textAlign: 'left',
-						marginBottom: 15,
-						marginLeft: 15,
-						marginRight: 15,
-					}}
-				>
-					Mollit qui laboris occaecat duis sunt consectetur aliqua nostrud Lorem exercitation. Commodo cillum
-					quis culpa laborum sunt sint eiusmod elit nulla aute ullamco irure et. Sit officia non consectetur
-					culpa velit esse. Nisi labore consequat tempor esse amet
-				</Text>
-			</TouchableOpacity>
-      )}
+					<TouchableOpacity onPress={this._onShowUnderlay.bind(this)}>
+						<Text
+							style={{
+								fontSize: 16,
+								color: '#FFFFFF',
+								textAlign: 'left',
+								marginBottom: 15,
+								marginLeft: 15,
+								marginRight: 15,
+							}}
+						>
+							Mollit qui laboris occaecat duis sunt consectetur aliqua nostrud Lorem exercitation. Commodo
+							cillum quis culpa laborum sunt sint eiusmod elit nulla aute ullamco irure et. Sit officia
+							non consectetur culpa velit esse. Nisi labore consequat tempor esse amet
+						</Text>
+					</TouchableOpacity>
+				)}
 			</AppConsumer>
 		);
 	}

@@ -48,7 +48,7 @@ export default class SignInEmail extends React.Component {
 							keyboardType="phone-pad"
 						/>
 						<TouchableOpacity onPress={() => this.props.navigation.navigate('ForgotPassword')}>
-						<Text style={styles.textStyle}>Забыли пароль?</Text>
+							<Text style={styles.textStyle}>Забыли пароль?</Text>
 						</TouchableOpacity>
 						<Button
 							buttonTitle="Авторизоваться"

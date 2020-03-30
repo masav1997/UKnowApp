@@ -49,8 +49,11 @@ export default class Question extends React.Component {
 							<AnswerBlock id="B" answer="Ferrari F350" />
 							<AnswerBlock id="C" answer="Lotus MG-13" />
 							<AnswerBlock id="D" answer="Жигули Лада 2108" />
-							<View style={{marginTop: 15, width: width-30, alignSelf: 'center'}}>
-							<Button buttonTitle="Продолжить" onPress={() => this.props.navigation.navigate('FinishPage1')} />
+							<View style={{ marginTop: 15, width: width - 30, alignSelf: 'center' }}>
+								<Button
+									buttonTitle="Продолжить"
+									onPress={() => this.props.navigation.navigate('FinishPage1')}
+								/>
 							</View>
 							<TouchableOpacity onPress={() => this.props.navigation.navigate('FinishPage2')}>
 								<Text
