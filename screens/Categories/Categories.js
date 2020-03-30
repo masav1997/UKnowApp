@@ -25,19 +25,26 @@ export default class Categories extends React.Component {
 							}}
 						>
 							<View style={{ textAlign: 'center', textAlign: 'center', backgroundColor: '#09121C' }}>
+								<View
+									style={{
+										paddingLeft: 15,
+										paddingRight: 15,
+										marginBottom: -20,
+										flexDirection: 'row',
+									}}
+								>
+									<Header
+										left={
+											<TouchableOpacity onPress={() => this.props.navigation.navigate('MainPage')}>
+												<View style={{ width: 60, height: 50, top: 10 }}>
+													<BackButton onPress={() => this.props.navigation.goBack()}/>
+												</View>
+											</TouchableOpacity>
+										}
+										center={<HeaderTitle title="Автомобили " />}
+									/>
+								</View>
 								<ScrollView>
-									<View style={{ paddingLeft: 15, paddingRight: 15, marginBottom: 10 }}>
-										<Header
-											left={
-												<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-													<View style={{ width: 60, height: 50, top: 10 }}>
-														<BackButton />
-													</View>
-												</TouchableOpacity>
-											}
-											center={<HeaderTitle title="Автомобили " />}
-										/>
-									</View>
 									<SearchBlock />
 									<View style={{ flexDirection: 'row', marginTop: 10 }}>
 										<View style={{ flex: 5 }}>

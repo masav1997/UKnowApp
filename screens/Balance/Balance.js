@@ -69,17 +69,21 @@ export default class Balance extends React.Component {
 							}}
 						>
 							<View style={{ width: width - 30, textAlign: 'center' }}>
-								<ScrollView>
+								<View
+									style={{ flexDirection: 'row', marginBottom: -20, marginTop: -10}}
+								>
 									<Header
 										left={
 											<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
 												<View style={{ width: 60, height: 50, top: 10 }}>
-													<BackButton />
+													<BackButton onPress={() => this.props.navigation.goBack()}/>
 												</View>
 											</TouchableOpacity>
 										}
 										center={<HeaderTitle title="Баланс" />}
 									/>
+								</View>
+								<ScrollView>
 									<Text
 										style={{
 											fontStyle: 'normal',
@@ -125,7 +129,7 @@ export default class Balance extends React.Component {
 											<Text style={{ fontSize: 16, color: '#898F97', marginBottom: 20 }}>
 												Пополнение
 											</Text>
-											<Input label="Сумма" value={this.state.summa} />
+											<Input label="Сумма" keyboardType="phone-pad" />
 											<Text style={{ fontSize: 16, color: '#898F97', marginBottom: 20 }}>
 												Способ пополнения
 											</Text>
@@ -191,13 +195,13 @@ export default class Balance extends React.Component {
 												<Text style={{ fontSize: 16, color: '#898F97', marginBottom: 20 }}>
 													Вывести
 												</Text>
-												<Input label="Сумма" value={this.state.summa1} />
+												<Input label="Сумма" keyboardType="phone-pad" />
 												<Text style={{ fontSize: 16, color: '#898F97', marginBottom: 20 }}>
 													Способ вывода
 												</Text>
 												<RadioButton options={options} onPress={this._onShowInput.bind(this)} />
 												{this.state.pressInput ? null : (
-													<Input label="Номер счёта" value={this.state.num} />
+													<Input label="Номер счёта" keyboardType="phone-pad" />
 												)}
 												<Button buttonTitle="Пополнить" onPress={this.toggleModal1} />
 											</View>

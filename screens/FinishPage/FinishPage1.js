@@ -17,16 +17,22 @@ export default class FinishPage1 extends React.Component {
 					}}
 				>
 					<View style={{ width: width - 30, textAlign: 'center' }}>
-						<Header
-							left={
-								<TouchableOpacity onPress={() => this.props.navigation.navigate('MainPage')}>
-									<View style={{ width: 40, height: 35, top: 5 }}>
-										<Quit />
+						<View style={{ flexDirection: 'row' }}>
+							<Header
+								left={
+									<TouchableOpacity onPress={() => this.props.navigation.navigate('MainPage')}>
+										<View style={{ width: 40, height: 35, top: 5 }}>
+											<Quit />
+										</View>
+									</TouchableOpacity>
+								}
+								center={
+									<View style={{ flexDirection: 'row' }}>
+										<HeaderTitle title="Викторина закончена" />
 									</View>
-								</TouchableOpacity>
-							}
-							center={<HeaderTitle title="Викторина закончена" />}
-						/>
+								}
+							/>
+						</View>
 						<View style={{ marginBottom: height / 9 }}></View>
 						<View
 							style={{

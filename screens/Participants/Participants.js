@@ -17,8 +17,8 @@ export default class Participants extends React.Component {
 						paddingTop: Platform.OS === 'android' ? 25 : 0,
 					}}
 				>
-					<View style={{ width: width - 30, textAlign: 'center' }}>
-						<ScrollView>
+					<View style={{ width: width - 30, textAlign: 'center', marginBottom:80 }}>
+						<View style={{ flexDirection: 'row', marginBottom: -20, marginTop: -10 }}>
 							<Header
 								left={
 									<TouchableOpacity onPress={() => this.props.navigation.navigate('MainPage')}>
@@ -29,6 +29,8 @@ export default class Participants extends React.Component {
 								}
 								center={<HeaderTitle title="Список участников" />}
 							/>
+						</View>
+						<ScrollView>
 							<ResultsBlock id="1" name="Imam Farrhouk" />
 							<ResultsBlock id="2" name="Imam Farrhouk" />
 							<ResultsBlock id="3" name="Imam Farrhouk" />

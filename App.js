@@ -103,13 +103,12 @@ export default class App extends React.Component {
 										borderTopRightRadius: 21,
 										backgroundColor: '#060A10',
 										position: 'absolute',
-										bottom: 0,
+										bottom: -1,
 										padding: 15,
 										height: 54,
 										zIndex: 8,
-										marginTop: 15,
 										borderTopColor: '#060A10',
-										borderTopWidth: 5,
+										borderTopWidth: 0.3
 									},
 									showLabel: false,
 								}}

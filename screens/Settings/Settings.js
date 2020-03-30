@@ -31,7 +31,7 @@ export default class Settings extends React.Component {
 												left={
 													<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
 														<View style={{ width: 60, height: 50, top: 10 }}>
-															<BackButton />
+															<BackButton onPress={() => this.props.navigation.goBack()}/>
 														</View>
 													</TouchableOpacity>
 												}

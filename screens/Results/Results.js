@@ -17,19 +17,30 @@ export default class Results extends React.Component {
 						paddingTop: Platform.OS === 'android' ? 25 : 0,
 					}}
 				>
-					<View style={{ width: width - 30, textAlign: 'center' }}>
+					<View style={{ flexDirection: 'row', marginBottom: -20 }}>
+						<Header
+							left={
+								<TouchableOpacity onPress={() => this.props.navigation.navigate('MainPage')}>
+									<View style={{ width: 40, height: 55, top: 10 }}>
+										<Quit />
+									</View>
+								</TouchableOpacity>
+							}
+							center={<View style={{ bottom: 7 }}><HeaderTitle title="Результаты" /></View>}
+							right={
+								<TouchableOpacity onPress={() => this.props.navigation.navigate('Answers')}>
+									<View style={{ height: 55, top: 10 }}>
+										<HeaderRedTitle
+											title="Ответы"
+											onPress={() => this.props.navigation.navigate('Answers')}
+										/>
+									</View>
+								</TouchableOpacity>
+							}
+						/>
+					</View>
+					<View style={{ width: width - 30, textAlign: 'center', marginBottom:130 }}>
 						<ScrollView>
-							<Header
-								left={
-									<TouchableOpacity onPress={() => this.props.navigation.navigate('MainPage')}>
-										<View style={{ width: 40, height: 35, top: 5 }}>
-											<Quit />
-										</View>
-									</TouchableOpacity>
-								}
-								center={<HeaderTitle title="Результаты" />}
-								right={<HeaderRedTitle title="Ответы" onPress={() => this.props.navigation.navigate('Answers')} />}
-							/>
 							<ResultsBlock id="1" name="Imam Farrhouk" points="25 баллов" time="15:38" />
 							<ResultsBlock id="2" name="Imam Farrhouk" points="25 баллов" time="15:38" />
 							<ResultsBlock id="3" name="Imam Farrhouk" points="25 баллов" time="15:38" />

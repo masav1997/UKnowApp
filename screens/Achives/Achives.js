@@ -24,12 +24,12 @@ export default class Achives extends React.Component {
 							}}
 						>
 							<View style={{ textAlign: 'center', backgroundColor: appConsumer1.theme.colors.bg1 }}>
+								<View style={{ paddingLeft: 15, paddingRight: 15, marginBottom: -40 }}>
+									<Header center={<Logo />} />
+									<Title title="Достижения" />
+								</View>
 								<ScrollView>
 									<View style={{ width: width, paddingRight: 5 }}>
-										<View style={{ paddingLeft: 15, paddingRight: 15, marginBottom: -30 }}>
-											<Header center={<Logo />} />
-											<Title title="Достижения" />
-										</View>
 										<View
 											style={{
 												flex: 1,

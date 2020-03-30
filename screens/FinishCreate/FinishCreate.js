@@ -21,16 +21,18 @@ export default class FinishCreate extends React.Component {
 							}}
 						>
 							<View style={{ width: width - 30, textAlign: 'center' }}>
-								<Header
-									left={
-										<TouchableOpacity onPress={() => this.props.navigation.navigate('MyQuiz')}>
-											<View style={{ width: 30, height: 30, top: 5 }}>
-												<Quit />
-											</View>
-										</TouchableOpacity>
-									}
-									center={<HeaderTitle title="Викторина создана" />}
-								/>
+									<View style={{ flexDirection: 'row' }}>
+										<Header
+											left={
+												<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+													<View style={{ width: 60, height: 50, top: 10 }}>
+														<Quit />
+													</View>
+												</TouchableOpacity>
+											}
+											center={<HeaderTitle title="Викторина создана" />}
+										/>
+									</View>
 								<ScrollView>
 									<View style={{ marginBottom: height / 15 }}></View>
 									<Text
@@ -65,8 +67,6 @@ export default class FinishCreate extends React.Component {
 											borderTopRightRadius: 16,
 											borderTopLeftRadius: 16,
 											borderBottomLeftRadius: 16,
-											marginLeft: 15,
-											marginRight: 15,
 											marginBottom: 15,
 											paddingLeft: 15,
 											paddingRight: 15,
@@ -166,7 +166,7 @@ export default class FinishCreate extends React.Component {
 										</View>
 									</View>
 								</ScrollView>
-								<View style={{ marginLeft: 15, marginRight: 15, marginTop: 15 }}>
+								<View style={{ marginTop: 25 }}>
 									<Button
 										buttonTitle="Продолжить"
 										onPress={() => this.props.navigation.navigate('EditQuiz')}

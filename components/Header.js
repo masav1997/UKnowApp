@@ -10,6 +10,7 @@ export default class Header extends React.Component {
 			alignItems: 'center',
 			justifyContent: 'center',
 			marginBottom: 30,
+			flex:1
 		};
 		const leftStyle = {
 			flex: 1,
@@ -26,7 +27,7 @@ export default class Header extends React.Component {
 			<View style={headerStyle}>
 				<View style={leftStyle}>
 					<TouchableOpacity>{left}</TouchableOpacity>
-				</View>
+				</View>     
 				<View style={centerStyle}>{center}</View>
 				<View style={rightStyle}>{right}</View>
 			</View>

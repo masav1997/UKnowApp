@@ -11,6 +11,8 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 import RadioButton from '../../components/RadioButton';
 import { AppConsumer } from '../../AppContextProvider';
+import DatePicker from 'react-native-modern-datepicker';
+import Modal from 'react-native-modal';
 
 const { width } = Dimensions.get('window');
 
@@ -66,6 +68,13 @@ export default class CreateQuiz extends React.Component {
 		description: '',
 		data: '',
 		people: '',
+		date: '30-03-2020',
+		time: '16:00',
+		month: '',
+		isModalVisible: false,
+	};
+	toggleModal = () => {
+		this.setState({ isModalVisible: !this.state.isModalVisible });
 	};
 	render() {
 		return (
@@ -85,18 +94,26 @@ export default class CreateQuiz extends React.Component {
 								}}
 							></View>
 							<View style={{ width: width - 30, textAlign: 'center' }}>
-								<ScrollView>
+								<View
+									style={{
+										flexDirection: 'row',
+										backgroundColor: appConsumer1.theme.colors.bg2,
+										marginBottom: -10,
+									}}
+								>
 									<Header
 										left={
 											<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
 												<View style={{ width: 60, height: 50, top: 10 }}>
-													<BackButton />
+													<BackButton onPress={() => this.props.navigation.goBack()}/>
 												</View>
 											</TouchableOpacity>
 										}
 										center={<HeaderTitle title="Создание викторины" />}
 										right={<HeaderRedTitle title="Очистить" />}
 									/>
+								</View>
+								<ScrollView style={{ marginBottom: 130 }}>
 									<RadioList PROP={PROP} title="Категория" />
 									<Multislider title="Стоимость входа" />
 									<Slider title="Первое место" />
@@ -114,12 +131,50 @@ export default class CreateQuiz extends React.Component {
 										onChangeText={text => this.setState({ title: text })}
 										placeholder="Описание тут"
 									/>
-									<Input
-										label="Дата и время проведения"
-										value={this.state.title}
-										onChangeText={text => this.setState({ title: text })}
-										placeholder="22.02.2020 13:45"
-									/>
+									<TouchableOpacity onPress={this.toggleModal}>
+										<Input
+											label="Дата и время проведения"
+											value={this.state.title}
+											placeholder={this.state.date + ' ' + this.state.time}
+											editable={false}
+										/>
+									</TouchableOpacity>
+									<Modal isVisible={this.state.isModalVisible}>
+										<View
+											style={{
+												width: width - 30,
+												height: 'auto',
+												backgroundColor: appConsumer1.theme.colors.card,
+												borderTopLeftRadius: 16,
+												borderTopRightRadius: 16,
+												borderBottomLeftRadius: 16,
+											}}
+										>
+											<DatePicker
+												options={{
+													backgroundColor: appConsumer1.theme.colors.card,
+													textHeaderColor: appConsumer1.theme.colors.text,
+													textDefaultColor: appConsumer1.theme.colors.text,
+													selectedTextColor: appConsumer1.theme.colors.card,
+													mainColor: appConsumer1.theme.colors.text,
+													textSecondaryColor: appConsumer1.theme.colors.text,
+													borderColor: appConsumer1.theme.colors.text,
+												}}
+												current="2020-07-13"
+												selected="2020-07-23"
+												mode="datepicker"
+												minuteInterval={30}
+												style={{ borderRadius: 10 }}
+												onTimeChange={date => this.setState({ time: date })}
+												onDateChange={date => this.setState({ date: date })}
+												onMonthYearChange={date => this.setState({ month: date })}
+												minuteInterval={1}
+											/>
+											<View style={{ width: width - 60, alignSelf: 'center', top: -15 }}>
+												<Button buttonTitle="Сохранить" onPress={this.toggleModal} />
+											</View>
+										</View>
+									</Modal>
 									<Input
 										label="Количество участников"
 										value={this.state.people}

@@ -20,17 +20,19 @@ export default class History extends React.Component {
 							}}
 						>
 							<View style={{ width: width - 30, textAlign: 'center' }}>
-								<ScrollView>
+								<View style={{ flexDirection: 'row', marginBottom: -20, marginTop: -10 }}>
 									<Header
 										left={
 											<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
 												<View style={{ width: 60, height: 50, top: 10 }}>
-													<BackButton />
+													<BackButton onPress={() => this.props.navigation.goBack()}/>
 												</View>
 											</TouchableOpacity>
 										}
 										center={<HeaderTitle title="История игр" />}
 									/>
+								</View>
+								<ScrollView>
 									<View style={{ flexDirection: 'row' }}>
 										<View
 											style={{

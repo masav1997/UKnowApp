@@ -9,11 +9,23 @@ import Button from '../../components/Button';
 import InputBorder from '../../components/InputBorder';
 const { width } = Dimensions.get('window');
 import { AppConsumer } from '../../AppContextProvider';
+import { TextInput } from 'react-native-paper';
 
 export default class CreateQuestion extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { pressInput: true, pressButton: true, pressInput1: true };
+		this.state = {
+			pressInput: 0,
+			pressButton: true,
+			pressInput1: true,
+			inputList: [],
+			inputList1: [],
+			questions: [],
+			cards: [],
+		};
+		this.onAddBtnClick = this.onAddBtnClick.bind(this);
+		this.onAddBtnClick1 = this.onAddBtnClick1.bind(this);
+		this._onShowCard = this._onShowCard.bind(this);
 	}
 
 	state = {
@@ -27,28 +39,70 @@ export default class CreateQuestion extends React.Component {
 		answer3_1: '',
 	};
 
-	_onShowInput() {
-		if (!this.state.pressInput) {
-			this.setState({ pressInput: true });
-		} else {
-			this.setState({ pressInput: false });
-		}
+	onAddBtnClick(event) {
+		const inputList = this.state.inputList;
+		this.setState({
+			inputList: inputList.concat(<Input label="Ответ" />),
+		});
+	}
+	onAddBtnClick1(event) {
+		const inputList1 = this.state.inputList1;
+		this.setState({
+			inputList1: inputList1.concat(
+				<View style={{ marginLeft: 15, marginRight: 15, marginBottom: 10 }}>
+					<Input label="Ответ" />
+				</View>
+			),
+		});
+		this.state.inputList.map(function(input, index) {
+			return input;
+		});
 	}
 
-	_onShowInput1() {
-		if (!this.state.pressInput1) {
-			this.setState({ pressInput1: true });
-		} else {
-			this.setState({ pressInput1: false });
-		}
-	}
-
-	_onShowCard() {
-		if (!this.state.pressButton) {
-			this.setState({ pressButton: true });
-		} else {
-			this.setState({ pressButton: false });
-		}
+	_onShowCard(event) {
+		const cards = this.state.cards;
+		this.setState({
+			cards: cards.concat(
+				<AppConsumer>
+					{appConsumer1 => (
+						<View>
+							<Text
+								style={{
+									fontSize: 16,
+									fontWeight: '500',
+									lineHeight: 20,
+									marginTop: 15,
+									marginBottom: 15,
+									marginLeft: 15,
+									color: '#898F97',
+								}}
+							>
+								Вопрос
+							</Text>
+							<View style={{ marginLeft: 15, marginRight: 15, marginBottom: 10 }} key={cards.length}>
+								<Input label="Текст вопроса" />
+								<InputBorder label="Верный ответ" />
+								<Input label="Ответ" />
+								<TouchableOpacity onPress={this.onAddBtnClick1}>
+									<Text
+										style={{
+											fontSize: 13,
+											fontWeight: '500',
+											lineHeight: 16,
+											textAlign: 'center',
+											color: '#FF3358',
+											alignSelf: 'center',
+										}}
+									>
+										+ Вариант ответа
+									</Text>
+								</TouchableOpacity>
+							</View>
+						</View>
+					)}
+				</AppConsumer>
+			),
+		});
 	}
 
 	render() {
@@ -61,23 +115,29 @@ export default class CreateQuestion extends React.Component {
 								paddingTop: Platform.OS === 'android' ? 25 : 0,
 							}}
 						>
-							<View style={{ textAlign: 'center', backgroundColor: appConsumer1.theme.colors.bg1 }}>
-								<ScrollView>
-									<View style={{ width: width }}>
-										<View style={{ marginLeft: 15, marginRight: 15 }}>
-											<Header
-												left={
-													<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-														<View style={{ width: 60, height: 50, top: 10 }}>
-															<BackButton />
-														</View>
-													</TouchableOpacity>
-												}
-												center={<HeaderTitle title="Создание викторины" />}
-												right={<HeaderRedTitle title="Очистить" />}
-											/>
-										</View>
+							<View
+								style={{
+									textAlign: 'center',
+									backgroundColor: appConsumer1.theme.colors.bg1,
+									width: width,
+								}}
+							>
+								<View style={{ paddingLeft: 15, paddingRight: 15 }}>
+									<View style={{ flexDirection: 'row' }}>
+										<Header
+											left={
+												<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+													<View style={{ width: 60, height: 50, top: 10 }}>
+														<BackButton onPress={() => this.props.navigation.goBack()}/>
+													</View>
+												</TouchableOpacity>
+											}
+											center={<HeaderTitle title="Создание викторины" />}
+											right={<HeaderRedTitle title="Очистить" />}
+										/>
 									</View>
+								</View>
+								<ScrollView>
 									<View
 										style={{
 											backgroundColor: appConsumer1.theme.colors.card,
@@ -119,46 +179,43 @@ export default class CreateQuestion extends React.Component {
 												value={this.state.answer2}
 												onChangeText={text => this.setState({ answer2: text })}
 											/>
-
-											{this.state.pressInput ? (
-												<TouchableOpacity onPress={this._onShowInput.bind(this)}>
-													<Text
-														style={{
-															fontSize: 13,
-															fontWeight: '500',
-															lineHeight: 16,
-															marginBottom: 10,
-															textAlign: 'center',
-															color: '#FF3358',
-														}}
-													>
-														+ Вариант ответа
-													</Text>
-												</TouchableOpacity>
-											) : (
-												<View>
-													<Input
-														label="Ответ"
-														value={this.state.answer3}
-														onChangeText={text => this.setState({ answer3: text })}
-													/>
-													<TouchableOpacity onPress={this._onShowInput.bind(this)}>
-														<Text
-															style={{
-																fontSize: 13,
-																fontWeight: '500',
-																lineHeight: 16,
-																marginBottom: 10,
-																textAlign: 'center',
-																color: '#FF3358',
-															}}
-														>
-															+ Вариант ответа
-														</Text>
-													</TouchableOpacity>
-												</View>
-											)}
+											{this.state.inputList.map(function(input, index) {
+												return input;
+											})}
+											<TouchableOpacity onPress={this.onAddBtnClick}>
+												<Text
+													style={{
+														fontSize: 13,
+														fontWeight: '500',
+														lineHeight: 16,
+														marginBottom: 10,
+														textAlign: 'center',
+														color: '#FF3358',
+													}}
+												>
+													+ Вариант ответа
+												</Text>
+											</TouchableOpacity>
 										</View>
+									</View>
+									<View
+										style={{
+											backgroundColor: appConsumer1.theme.colors.card,
+											height: 'auto',
+											borderTopRightRadius: 16,
+											borderTopLeftRadius: 16,
+											borderBottomLeftRadius: 16,
+											marginLeft: 15,
+											marginRight: 15,
+											marginBottom: 15,
+										}}
+									>
+										{this.state.cards.map(function(input, index) {
+											return input;
+										})}
+										{this.state.inputList1.map(function(input, index) {
+											return input;
+										})}
 									</View>
 									<View
 										style={{
@@ -185,74 +242,31 @@ export default class CreateQuestion extends React.Component {
 										>
 											Следующий вопрос
 										</Text>
-										{this.state.pressButton ? (
-											<TouchableOpacity
-												style={{ marginLeft: 15, marginRight: 15, marginBottom: 10 }}
-												onPress={this._onShowCard.bind(this)}
+										<TouchableOpacity
+											style={{ marginLeft: 15, marginRight: 15, marginBottom: 10 }}
+											onPress={this._onShowCard}
+										>
+											<Text
+												style={{
+													fontSize: 16,
+													fontWeight: 'bold',
+													lineHeight: 20,
+													marginBottom: 10,
+													textAlign: 'center',
+													color: '#FF3358',
+												}}
 											>
-												<Text
-													style={{
-														fontSize: 16,
-														fontWeight: 'bold',
-														lineHeight: 20,
-														marginBottom: 10,
-														textAlign: 'center',
-														color: '#FF3358',
-													}}
-												>
-													+ Ещё вопрос
-												</Text>
-											</TouchableOpacity>
-										) : (
-											<View style={{ marginLeft: 15, marginRight: 15, marginBottom: 10 }}>
-												<Input
-													label="Текст вопроса"
-													value={this.state.question1}
-													onChangeText={text => this.setState({ question1: text })}
-												/>
-												<InputBorder
-													label="Верный ответ"
-													value={this.state.answer1_1}
-													onChangeText={text => this.setState({ answer1: text })}
-												/>
-												<Input
-													label="Ответ"
-													value={this.state.answer2_1}
-													onChangeText={text => this.setState({ answer2: text })}
-												/>
-
-												{this.state.pressInput1 ? (
-													<TouchableOpacity onPress={this._onShowInput1.bind(this)}>
-														<Text
-															style={{
-																fontSize: 13,
-																fontWeight: '500',
-																lineHeight: 16,
-																marginBottom: 10,
-																textAlign: 'center',
-																color: '#FF3358',
-															}}
-														>
-															+ Вариант ответа
-														</Text>
-													</TouchableOpacity>
-												) : (
-													<Input
-														label="Ответ"
-														value={this.state.answer3_1}
-														onChangeText={text => this.setState({ answer2: text })}
-													/>
-												)}
-											</View>
-										)}
+												+ Ещё вопрос
+											</Text>
+										</TouchableOpacity>
 									</View>
-								</ScrollView>
-								<View style={{ marginLeft: 15, marginRight: 15, marginTop: 15 }}>
+									<View style={{ marginLeft: 15, marginRight: 15, marginTop: 15, marginBottom:150 }}>
 									<Button
 										buttonTitle="Продолжить"
 										onPress={() => this.props.navigation.navigate('FinishCreate')}
 									/>
 								</View>
+								</ScrollView>
 							</View>
 						</SafeAreaView>
 					</View>

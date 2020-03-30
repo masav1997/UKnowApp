@@ -61,19 +61,21 @@ export default class Filters extends React.Component {
 						paddingTop: Platform.OS === 'android' ? 25 : 0,
 					}}
 				>
-					<View style={{ width: width - 30, textAlign: 'center' }}>
+					<View style={{ width: width - 30, textAlign: 'center', backgroundColor: '#19232F', marginBottom: 120}}>
+						<View style={{flexDirection: 'row', marginBottom: -20}}>
+						<Header
+							left={
+								<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+									<View style={{ width: 60, height: 50, top: 10 }}>
+										<BackButton onPress={() => this.props.navigation.goBack()}/>
+									</View>
+								</TouchableOpacity>
+							}
+							center={<HeaderTitle title="Фильтры" />}
+							right={<HeaderRedTitle title="Очистить" />}
+						/>
+						</View>
 						<ScrollView>
-							<Header
-								left={
-									<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-										<View style={{ width: 60, height: 50, top: 10 }}>
-											<BackButton />
-										</View>
-									</TouchableOpacity>
-								}
-								center={<HeaderTitle title="Фильтры" />}
-								right={<HeaderRedTitle title="Очистить" />}
-							/>
 							<RadioList PROP={PROP} title="Категория" />
 							<Multislider title="Стоимость входа" />
 							<Multislider title="Призовой фонд" />

@@ -24,7 +24,7 @@ export default class AnswerBlock extends React.Component {
 							this.state.pressStatus
 								? {
 										backgroundColor: appConsumer1.theme.colors.card,
-										height: 'auto',
+										height: 68,
 										borderTopRightRadius: 16,
 										borderTopLeftRadius: 16,
 										borderBottomLeftRadius: 16,
@@ -35,7 +35,7 @@ export default class AnswerBlock extends React.Component {
 								  }
 								: {
 										backgroundColor: appConsumer1.theme.colors.card,
-										height: 'auto',
+										height: 68,
 										borderTopRightRadius: 16,
 										borderTopLeftRadius: 16,
 										borderBottomLeftRadius: 16,

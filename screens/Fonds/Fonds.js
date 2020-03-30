@@ -18,7 +18,7 @@ export default class Fonds extends React.Component {
 					}}
 				>
 					<View style={{ width: width - 30, textAlign: 'center' }}>
-						<ScrollView>
+					<View style={{ flexDirection: 'row' }}>
 							<Header
 								left={
 									<TouchableOpacity onPress={() => this.props.navigation.navigate('MainPage')}>
@@ -29,6 +29,8 @@ export default class Fonds extends React.Component {
 								}
 								center={<HeaderTitle title="Список фондов" />}
 							/>
+						</View>
+						<ScrollView style={{marginBottom:130}}>
 							<ResultsBlock id="1" name="Imam Farrhouk" />
 							<ResultsBlock id="2" name="Imam Farrhouk" />
 							<ResultsBlock id="3" name="Imam Farrhouk" />

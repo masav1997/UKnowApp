@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
 
 export default class BackButton extends React.Component {
 	render() {
@@ -9,6 +9,6 @@ export default class BackButton extends React.Component {
 			height: 25,
 			width: 26,
 		};
-		return <Image source={require('../assets/icons/back.png')} style={logoStyle} />;
+		return <TouchableOpacity onPress={onPress}><Image source={require('../assets/icons/back.png')} style={logoStyle} /></TouchableOpacity>;
 	}
 }

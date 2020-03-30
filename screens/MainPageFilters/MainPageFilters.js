@@ -23,18 +23,18 @@ export default class MainPageFilters extends React.Component {
 					}}
 				>
 					<View style={{ textAlign: 'center', textAlign: 'center', backgroundColor: '#09121C' }}>
-						<ScrollView>
-							<View style={{ paddingLeft: 15, paddingRight: 15, marginBottom: -30 }}>
-								<Header center={<Logo />} />
-								<View style={{ flexDirection: 'row' }}>
-									<View style={{ flex: 4.5 }}>
-										<Title title="Викторины" />
-									</View>
-									<View style={{ flex: 1 }}>
-										<PlusButton onPress={() => this.props.navigation.navigate('CreateQuiz')}/>
-									</View>
+						<View style={{ paddingLeft: 15, paddingRight: 15, marginBottom: -40 }}>
+							<Header center={<Logo />} />
+							<View style={{ flexDirection: 'row' }}>
+								<View style={{ flex: 4.5 }}>
+									<Title title="Викторины" />
+								</View>
+								<View style={{ flex: 1 }}>
+									<PlusButton onPress={() => this.props.navigation.navigate('CreateQuiz')} />
 								</View>
 							</View>
+						</View>
+						<ScrollView>
 							<SearchBlock />
 							<View style={{ flexDirection: 'row', marginTop: 10 }}>
 								<View style={{ flex: 1 }}>

@@ -23,6 +23,27 @@ export default class EditQuiz extends React.Component {
 							}}
 						>
 							<View style={{ textAlign: 'center', backgroundColor: appConsumer1.theme.colors.gradient }}>
+								<View
+									style={{
+										flexDirection: 'row',
+										backgroundColor: appConsumer1.theme.colors.bg2,
+										paddingLeft: 15,
+										paddingRight: 15,
+										marginBottom: -10,
+									}}
+								>
+									<Header
+										left={
+											<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+												<View style={{ width: 60, height: 50, top: 10 }}>
+													<BackButton onPress={() => this.props.navigation.goBack()}/>
+												</View>
+											</TouchableOpacity>
+										}
+										center={<Logo />}
+										right={<PenIcon />}
+									/>
+								</View>
 								<ScrollView>
 									<View
 										style={{
@@ -36,19 +57,6 @@ export default class EditQuiz extends React.Component {
 											paddingRight: 15,
 										}}
 									>
-										<View>
-											<Header
-												left={
-													<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-														<View style={{ width: 60, height: 50, top: 10 }}>
-															<BackButton />
-														</View>
-													</TouchableOpacity>
-												}
-												center={<Logo />}
-												right={<PenIcon />}
-											/>
-										</View>
 										<View style={{ flexDirection: 'row' }}>
 											<View style={{ flex: 1, height: 28 }}>
 												<Image

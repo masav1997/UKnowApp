@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Dimensions, Text, TouchableOpacity } from 'react-native';
+import { View, Dimensions, Text, TouchableOpacity, TouchableHighlight } from 'react-native';
 import NameBlock from '../components/NameBlock';
 import { AppConsumer } from '../AppContextProvider';
 
@@ -39,7 +39,7 @@ export default class AboutQuizBlock extends React.Component {
 		return (
 			<AppConsumer>
 				{appConsumer1 => (
-					<TouchableOpacity
+					<TouchableOpacity 
 						style={{
 							backgroundColor: appConsumer1.theme.colors.card,
 							height: 'auto',
@@ -54,6 +54,7 @@ export default class AboutQuizBlock extends React.Component {
 							paddingRight: 15,
 						}}
 						onPress={onPress}
+						activeOpacity={1}
 					>
 						<NameBlock
 							name="Imam Farrhouk"

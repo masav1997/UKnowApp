@@ -44,26 +44,26 @@ export default class AboutFond extends React.Component {
 							}}
 						>
 							<View style={{ textAlign: 'center', backgroundColor: appConsumer1.theme.colors.gradient }}>
-								<ScrollView>
+								
 									<ImageBackground
 										blurRadius={10}
 										resizeMode={'cover'}
 										style={{
 											height: 231,
 											width: width,
-											marginBottom: 35,
+											marginBottom: 15,
 											paddingLeft: 15,
 											paddingRight: 15,
 										}}
 										imageStyle={{ borderBottomRightRadius: 35, borderBottomLeftRadius: 35 }}
 										source={require('../../assets/icons/bg.png')}
 									>
-										<View style={{ marginBottom: 30, top: 20 }}>
+										<View style={{ marginBottom: 10, flexDirection: 'row' }}>
 											<Header
 												left={
 													<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-														<View style={{ width: 60, height: 50, top: 10 }}>
-															<BackButton />
+														<View style={{ width: 60, height: 50, top:10 }}>
+															<BackButton onPress={() => this.props.navigation.goBack()}/>
 														</View>
 													</TouchableOpacity>
 												}
@@ -145,6 +145,7 @@ export default class AboutFond extends React.Component {
 											</View>
 										</View>
 									</ImageBackground>
+									<ScrollView>
 									<Text
 										style={{
 											fontSize: 16,

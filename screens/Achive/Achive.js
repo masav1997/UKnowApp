@@ -17,17 +17,23 @@ export default class Achive extends React.Component {
 					}}
 				>
 					<View style={{ width: width - 30, textAlign: 'center' }}>
-						<Header
-							left={
-								<TouchableOpacity onPress={() => this.props.navigation.navigate('Achives')}>
-									<View style={{ width: 40, height: 35, top: 5 }}>
-										<Quit />
+						<View style={{ flexDirection: 'row' }}>
+							<Header
+								left={
+									<TouchableOpacity onPress={() => this.props.navigation.navigate('MainPage')}>
+										<View style={{ width: 40, height: 35, top: 5 }}>
+											<Quit />
+										</View>
+									</TouchableOpacity>
+								}
+								center={
+									<View style={{ flexDirection: 'row' }}>
+										<HeaderTitle title="Викторина закончена" />
 									</View>
-								</TouchableOpacity>
-							}
-							center={<HeaderTitle title="Викторина закончена" />}
-						/>
-						<View style={{ marginTop: '15%', alignSelf: 'center', marginBottom: 31 }}>
+								}
+							/>
+						</View>
+						<View style={{ marginTop: '25%', alignSelf: 'center', marginBottom: 31 }}>
 							<ProgressCircle
 								percent={30}
 								radius={80}

@@ -18,17 +18,19 @@ export default class Answers extends React.Component {
 					}}
 				>
 					<View style={{ width: width - 30, textAlign: 'center' }}>
-						<ScrollView>
+						<View style={{ flexDirection: 'row', marginBottom: -20 }}>
 							<Header
 								left={
 									<TouchableOpacity onPress={() => this.props.navigation.navigate('MainPage')}>
-										<View style={{ width: 40, height: 35, top: 5 }}>
+										<View style={{ width: 40, height: 45, top: 10 }}>
 											<Quit />
 										</View>
 									</TouchableOpacity>
 								}
 								center={<HeaderTitle title="Ответы" />}
 							/>
+						</View>
+						<ScrollView style={{marginBottom:130}}>
 							<AnswersBlock
 								id="1"
 								question="Какой автомобиль победил в гонке «24 часа Ле-манн» в 1964 году?"

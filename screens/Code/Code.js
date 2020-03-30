@@ -25,12 +25,12 @@ export default class Code extends React.Component {
 						<Header
 							left={
 								<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-									<View style={{ width: 60, height: 50, top: 10 }}>
-										<BackButton />
+									<View style={{ width: 60, height: 50 }}>
+										<BackButton onPress={() => this.props.navigation.goBack()}/>
 									</View>
 								</TouchableOpacity>
 							}
-							center={<Logo />}
+							center={<View style={{ top:5 }}><Logo /></View>}
 						/>
 						<View style={styles.space}></View>
 						<Title title="Код из смс" />
@@ -107,6 +107,6 @@ const styles = StyleSheet.create({
 		marginBottom: -15,
 	},
 	space: {
-		marginBottom: 10,
+		marginBottom: 30,
 	},
 });
