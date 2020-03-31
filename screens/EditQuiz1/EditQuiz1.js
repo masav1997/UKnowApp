@@ -64,7 +64,7 @@ const PROP = [
 	},
 ];
 
-export default class CreateQuiz extends React.Component {
+export default class EditQuiz1 extends React.Component {
 	state = {
 		title: '',
 		description: '',
@@ -111,7 +111,7 @@ export default class CreateQuiz extends React.Component {
 												</View>
 											</TouchableOpacity>
 										}
-										center={<HeaderTitle title="Создание викторины" />}
+										center={<HeaderTitle title="Редактировать" />}
 										right={<HeaderRedTitle title="Очистить" />}
 									/>
 								</View>

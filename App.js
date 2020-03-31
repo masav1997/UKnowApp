@@ -17,6 +17,7 @@ import CreateQuiz from './screens/CreateQuiz/CreateQuiz';
 import CreateQuestion from './screens/CreateQuestion/CreateQuestion';
 import FinishCreate from './screens/FinishCreate/FinishCreate';
 import EditQuiz from './screens/EditQuiz/EditQuiz';
+import EditQuiz1 from './screens/EditQuiz1/EditQuiz1';
 import Filters from './screens/Filters/Filters';
 import AboutQuiz from './screens/AboutQuiz/AboutQuiz';
 import AboutFond from './screens/AboutFond/AboutFond';
@@ -178,6 +179,7 @@ export default class App extends React.Component {
 					<Stack.Screen name="CreateQuestion" component={CreateQuestion} />
 					<Stack.Screen name="FinishCreate" component={FinishCreate} />
 					<Stack.Screen name="EditQuiz" component={EditQuiz} />
+					<Stack.Screen name="EditQuiz1" component={EditQuiz1} />
 					<Stack.Screen name="Filters" component={Filters} />
 					<Stack.Screen name="AboutQuiz" component={AboutQuiz} />
 					<Stack.Screen name="AboutFond" >

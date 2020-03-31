@@ -36,12 +36,20 @@ export default class EditQuiz extends React.Component {
 										left={
 											<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
 												<View style={{ width: 60, height: 50, top: 10 }}>
-													<BackButton onPress={() => this.props.navigation.goBack()}/>
+													<BackButton onPress={() => this.props.navigation.goBack()} />
 												</View>
 											</TouchableOpacity>
 										}
 										center={<Logo />}
-										right={<PenIcon />}
+										right={
+											<TouchableOpacity onPress={() => this.props.navigation.navigate('EditQuiz1')}>
+												<View style={{ width: 20, height: 50, top: 20 }}>
+													<PenIcon
+														onPress={() => this.props.navigation.navigate('EditQuiz1')}
+													/>
+												</View>
+											</TouchableOpacity>
+										}
 									/>
 								</View>
 								<ScrollView>
