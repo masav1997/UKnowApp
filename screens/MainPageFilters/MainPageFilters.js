@@ -79,10 +79,11 @@ export default class MainPageFilters extends React.Component {
 											>
 												<Text
 													style={{
-														fontSize: 26,
+														fontSize: 24,
 														color: '#898F97',
 														textAlign: 'center',
 														fontWeight: '500',
+														top:'8%'
 													}}
 												>
 													#
@@ -126,10 +127,11 @@ export default class MainPageFilters extends React.Component {
 											>
 												<Text
 													style={{
-														fontSize: 26,
+														fontSize: 24,
 														color: '#898F97',
 														textAlign: 'center',
 														fontWeight: '500',
+														top:'8%',
 													}}
 												>
 													#

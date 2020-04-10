@@ -20,15 +20,26 @@ export default class HistoryBlock extends React.Component {
 			fontWeight: '700',
 			lineHeight: 16,
 			color: '#A1D3A2',
-			textAlign: 'right',
+			textAlign: 'center',
+		};
+		const textCashStyle = {
+			fontSize: 13,
+			fontWeight: '700',
+			lineHeight: 16,
+			color: '#FF3358',
+			textAlign: 'left',
 		};
 		return (
 			<View style={viewStyle}>
-				<View style={{ flex: 2, height: 'auto' }}>
+				<View style={{ flex: 1, height: 'auto' }}>
 					<Text style={textDataStyle}>{name}</Text>
 				</View>
 				<View style={{ flex: 1, height: 'auto' }}>
 					<Text style={textSumStyle}>{sum}</Text>
+				</View>
+				<View style={{ flex: 1, height: 'auto' }}>
+					<Text style={textDataStyle}>Выигрыш:</Text>
+					<Text style={textCashStyle}>1500 рублей</Text>
 				</View>
 			</View>
 		);

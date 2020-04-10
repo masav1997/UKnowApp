@@ -16,6 +16,7 @@ const { width } = Dimensions.get('window');
 export default class AboutQuiz extends React.Component {
 	state = {
 		isModalVisible: false,
+		pressManual: true,
 	};
 
 	toggleModal = () => {
@@ -25,10 +26,18 @@ export default class AboutQuiz extends React.Component {
 		this.setState({ isModalVisible: !this.state.isModalVisible });
 		this.props.navigation.navigate('Question');
 	};
+
+	_onShowInput() {
+		if (!this.state.pressManual) {
+			this.setState({ pressManual: true });
+		} else {
+			this.setState({ pressManual: false });
+		}
+	}
 	render() {
 		return (
 			<AppConsumer>
-				{appConsumer1 => (
+				{(appConsumer1) => (
 					<View style={{ flex: 1, backgroundColor: appConsumer1.theme.colors.bg2, alignItems: 'center' }}>
 						<SafeAreaView
 							style={{
@@ -36,12 +45,20 @@ export default class AboutQuiz extends React.Component {
 							}}
 						>
 							<View style={{ textAlign: 'center', backgroundColor: appConsumer1.theme.colors.gradient }}>
-								<View style={{ flexDirection: "row", backgroundColor: appConsumer1.theme.colors.bg2, paddingLeft:15, paddingRight: 15, marginBottom: -10  }}>
+								<View
+									style={{
+										flexDirection: 'row',
+										backgroundColor: appConsumer1.theme.colors.bg2,
+										paddingLeft: 15,
+										paddingRight: 15,
+										marginBottom: -10,
+									}}
+								>
 									<Header
 										left={
 											<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
 												<View style={{ width: 60, height: 50, top: 10 }}>
-													<BackButton onPress={() => this.props.navigation.goBack()}/>
+													<BackButton onPress={() => this.props.navigation.goBack()} />
 												</View>
 											</TouchableOpacity>
 										}
@@ -99,8 +116,8 @@ export default class AboutQuiz extends React.Component {
 												</Text>
 											</View>
 										</View>
-										<View style={{ flexDirection: 'row' }}>
-											<View style={{ flex: 1, height: 28, marginBottom: 20 }}>
+										<View style={{ flexDirection: 'row', marginBottom: 10 }}>
+											<View style={{ flex: 1, height: 'auto' }}>
 												<Text
 													style={{
 														fontStyle: 'normal',
@@ -126,7 +143,7 @@ export default class AboutQuiz extends React.Component {
 													1 500 000 руб.
 												</Text>
 											</View>
-											<View style={{ flex: 1, height: 28 }}>
+											<View style={{ flex: 1, height: 'auto' }}>
 												<Text
 													style={{
 														fontStyle: 'normal',
@@ -150,6 +167,88 @@ export default class AboutQuiz extends React.Component {
 													}}
 												>
 													200 из 250
+												</Text>
+											</View>
+										</View>
+										<View style={{ flexDirection: 'row', marginBottom: 10 }}>
+											<View style={{ flex: 1, height: 'auto' }}>
+												<Text
+													style={{
+														fontStyle: 'normal',
+														fontSize: 13,
+														lineHeight: 16,
+														fontWeight: '500',
+														color: '#898F97',
+														textAlign: 'left',
+													}}
+												>
+													Автор викторины:
+												</Text>
+												<Text
+													style={{
+														fontStyle: 'normal',
+														fontSize: 13,
+														lineHeight: 16,
+														fontWeight: '700',
+														color: '#FEAC5E',
+														textAlign: 'left',
+													}}
+												>
+													@Автор
+												</Text>
+											</View>
+											<View style={{ flex: 1, height: 'auto' }}>
+												<Text
+													style={{
+														fontStyle: 'normal',
+														fontSize: 13,
+														lineHeight: 16,
+														fontWeight: '500',
+														color: '#898F97',
+														textAlign: 'left',
+													}}
+												>
+													Организатор:
+												</Text>
+												<Text
+													style={{
+														fontStyle: 'normal',
+														fontSize: 13,
+														lineHeight: 16,
+														fontWeight: '700',
+														color: '#FFF',
+														textAlign: 'left',
+													}}
+												>
+													@Организатор
+												</Text>
+											</View>
+										</View>
+										<View style={{ flexDirection: 'row', marginBottom: 20 }}>
+											<View style={{ flex: 1, height: 'auto' }}>
+												<Text
+													style={{
+														fontStyle: 'normal',
+														fontSize: 13,
+														lineHeight: 16,
+														fontWeight: '500',
+														color: '#898F97',
+														textAlign: 'left',
+													}}
+												>
+													Начнётся через:
+												</Text>
+												<Text
+													style={{
+														fontStyle: 'normal',
+														fontSize: 13,
+														lineHeight: 16,
+														fontWeight: '700',
+														color: '#FF3358',
+														textAlign: 'left',
+													}}
+												>
+													15 минут
 												</Text>
 											</View>
 										</View>
@@ -400,6 +499,7 @@ export default class AboutQuiz extends React.Component {
 											alignSelf: 'center',
 											marginLeft: 15,
 											marginRight: 15,
+											bottom: 0
 										}}
 									>
 										<View
@@ -441,39 +541,149 @@ export default class AboutQuiz extends React.Component {
 												</Text>
 											</TouchableOpacity>
 										</View>
-										<View
-											style={{
-												flex: 1,
-												backgroundColor: '#FF3358',
-												borderRadius: 15,
-												width: 50,
-												height: 50,
-												alignSelf: 'center',
-												marginBottom: 25,
-												marginLeft: 10,
-												shadowColor: 'rgba(255, 51, 88, 0.6)',
-												shadowOpacity: 0.8,
-												shadowRadius: 15,
-												shadowOffset: {
-													height: -1,
-													width: 0,
-												},
-											}}
-										>
-											<TouchableOpacity
-												style={{
-													width: '100%',
-													height: '100%',
-													display: 'flex',
-													justifyContent: 'center',
-													alignItems: 'center',
-												}}
-											>
-												<Image
-													source={require('../../assets/icons/share.png')}
-													style={{ width: 20, height: 20 }}
-												/>
-											</TouchableOpacity>
+										<View style={{ flex:1}}>
+											{!this.state.pressManual ? (
+												<View style={{flexDirection:"column", }} >
+													<View
+														style={{
+															backgroundColor: '#FF3358',
+															borderRadius: 15,
+															width: 50,
+															height: 50,
+															alignSelf: 'center',
+															bottom: 120,
+															right: Platform.OS === 'android' ? 5 : 0,
+															shadowColor: 'rgba(255, 51, 88, 0.6)',
+															shadowOpacity: 0.8,
+															shadowRadius: 15,
+															shadowOffset: {
+																height: -1,
+																width: 0,
+															},
+															position:'absolute'
+														}}
+													>
+														<TouchableOpacity
+															style={{
+																width: '100%',
+																height: '100%',
+																display: 'flex',
+																justifyContent: 'center',
+																alignItems: 'center',
+															}}
+															onPress={() => this.props.navigation.navigate('CreateQuiz')}
+														>
+															<Image
+																source={require('../../assets/icons/copy.png')}
+																style={{ width: 22, height: 22, tintColor: 'white' }}
+															/>
+														</TouchableOpacity>
+													</View>
+													<View
+														style={{
+															backgroundColor: '#FF3358',
+															borderRadius: 15,
+															width: 50,
+															height: 50,
+															alignSelf: 'center',
+															bottom: 60,
+															right: Platform.OS === 'android' ? 5 : 0,
+															shadowColor: 'rgba(255, 51, 88, 0.6)',
+															shadowOpacity: 0.8,
+															shadowRadius: 15,
+															shadowOffset: {
+																height: -1,
+																width: 0,
+															},
+															position:'absolute'
+														}}
+													>
+														<TouchableOpacity
+															style={{
+																width: '100%',
+																height: '100%',
+																display: 'flex',
+																justifyContent: 'center',
+																alignItems: 'center',
+															}}
+														>
+															<Image
+																source={require('../../assets/icons/share.png')}
+																style={{ width: 22, height: 22, tintColor: 'white' }}
+															/>
+														</TouchableOpacity>
+													</View>
+													<View
+														style={{
+															backgroundColor: '#FF3358',
+															borderRadius: 15,
+															width: 50,
+															height: 50,
+															alignSelf: 'center',
+															marginLeft: 10,
+															shadowColor: 'rgba(255, 51, 88, 0.6)',
+															shadowOpacity: 0.8,
+															shadowRadius: 15,
+															shadowOffset: {
+																height: -1,
+																width: 0,
+															},
+														}}
+													>
+														<TouchableOpacity
+															style={{
+																width: '100%',
+																height: '100%',
+																display: 'flex',
+																justifyContent: 'center',
+																alignItems: 'center',
+															}}
+															onPress={this._onShowInput.bind(this)}
+														>
+															<Image
+																source={require('../../assets/icons/dots.png')}
+																style={{ width: 22, height: 4, tintColor: 'white' }}
+															/>
+														</TouchableOpacity>
+													</View>
+												</View>
+											) : (
+												<View
+													style={{
+														flex: 1,
+														backgroundColor: '#FF3358',
+														borderRadius: 15,
+														width: 50,
+														height: 50,
+														alignSelf: 'center',
+														marginBottom: 25,
+														marginLeft: 10,
+														shadowColor: 'rgba(255, 51, 88, 0.6)',
+														shadowOpacity: 0.8,
+														shadowRadius: 15,
+														shadowOffset: {
+															height: -1,
+															width: 0,
+														},
+													}}
+												>
+													<TouchableOpacity
+														style={{
+															width: '100%',
+															height: '100%',
+															display: 'flex',
+															justifyContent: 'center',
+															alignItems: 'center',
+														}}
+														onPress={this._onShowInput.bind(this)}
+													>
+														<Image
+															source={require('../../assets/icons/dots.png')}
+															style={{ width: 22, height: 4, tintColor: 'white' }}
+														/>
+													</TouchableOpacity>
+												</View>
+											)}
 										</View>
 									</View>
 								</ScrollView>

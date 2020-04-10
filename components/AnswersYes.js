@@ -3,7 +3,7 @@ import { View, Text, Image } from 'react-native';
 
 export default class AnswersBlock extends React.Component {
 	render() {
-		const { id, question, uAnswer, answer } = this.props;
+		const { id, question, uAnswer, answer, description } = this.props;
 		const viewStyle = {
 			flexDirection: 'row',
 		};
@@ -73,6 +73,14 @@ export default class AnswersBlock extends React.Component {
 					<View style={{ flex: 8 }}>
 						<Text style={textStyle}>Правильный ответ:</Text>
 						<Text style={textGreenStyle}>{answer}</Text>
+					</View>
+				</View>
+				<View style={viewStyle}>
+					<View style={{ flex: 0.8 }}>
+					</View>
+					<View style={{ flex: 8 }}>
+						<Text style={textStyle}>Пояснение:</Text>
+						<Text style={textBoldStyle}>{description}</Text>
 					</View>
 				</View>
 			</View>

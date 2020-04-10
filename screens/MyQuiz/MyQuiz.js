@@ -74,7 +74,7 @@ export default class MyQuiz extends React.Component {
 										descr2="25 000 руб + подарки"
 										descr3="Начнется через:"
 										descr4="15 ч 15 мин"
-										onPress={() => this.props.navigation.navigate('AboutQuiz')}
+										onPress={() => this.props.navigation.navigate('EditQuiz')}
 									/>
 									<View style={{ flexDirection: 'row', marginTop: 30 }}>
 										<View style={{ flex: 5 }}>

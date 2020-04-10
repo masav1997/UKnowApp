@@ -5,6 +5,7 @@ import HeaderTitle from '../../components/HeaderTitle';
 import HeaderRedTitle from '../../components/HeaderRedTitle';
 import BackButton from '../../components/BackButton';
 import Input from '../../components/Input';
+import InputWithImg from '../../components/InputWithImg';
 import Button from '../../components/Button';
 import InputBorder from '../../components/InputBorder';
 const { width } = Dimensions.get('window');
@@ -37,6 +38,7 @@ export default class CreateQuestion extends React.Component {
 		answer1_1: '',
 		answer2_1: '',
 		answer3_1: '',
+		description: ''
 	};
 
 	onAddBtnClick(event) {
@@ -80,7 +82,7 @@ export default class CreateQuestion extends React.Component {
 								Вопрос
 							</Text>
 							<View style={{ marginLeft: 15, marginRight: 15, marginBottom: 10 }} key={cards.length}>
-								<Input label="Текст вопроса" />
+								<InputWithImg label="Текст вопроса" />
 								<InputBorder label="Верный ответ" />
 								<Input label="Ответ" />
 								<TouchableOpacity onPress={this.onAddBtnClick1}>
@@ -164,7 +166,7 @@ export default class CreateQuestion extends React.Component {
 											Вопрос
 										</Text>
 										<View style={{ marginLeft: 15, marginRight: 15, marginBottom: 10 }}>
-											<Input
+											<InputWithImg
 												label="Текст вопроса"
 												value={this.state.question}
 												onChangeText={text => this.setState({ question: text })}
@@ -182,6 +184,12 @@ export default class CreateQuestion extends React.Component {
 											{this.state.inputList.map(function(input, index) {
 												return input;
 											})}
+											<Input
+												label="Комментарий к правильному ответу"
+												value={this.state.description}
+												onChangeText={text => this.setState({ description: text })}
+												placeholder="Ссылка или краткое пояснение"
+											/>
 											<TouchableOpacity onPress={this.onAddBtnClick}>
 												<Text
 													style={{

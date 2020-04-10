@@ -13,7 +13,7 @@ export default class FinishCreate extends React.Component {
 	render() {
 		return (
 			<AppConsumer>
-				{appConsumer1 => (
+				{(appConsumer1) => (
 					<View style={{ flex: 1, backgroundColor: appConsumer1.theme.colors.bg1, alignItems: 'center' }}>
 						<SafeAreaView
 							style={{
@@ -21,18 +21,18 @@ export default class FinishCreate extends React.Component {
 							}}
 						>
 							<View style={{ width: width - 30, textAlign: 'center' }}>
-									<View style={{ flexDirection: 'row' }}>
-										<Header
-											left={
-												<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-													<View style={{ width: 60, height: 50, top: 10 }}>
-														<Quit />
-													</View>
-												</TouchableOpacity>
-											}
-											center={<HeaderTitle title="Викторина создана" />}
-										/>
-									</View>
+								<View style={{ flexDirection: 'row' }}>
+									<Header
+										left={
+											<TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+												<View style={{ width: 60, height: 50, top: 10 }}>
+													<Quit />
+												</View>
+											</TouchableOpacity>
+										}
+										center={<HeaderTitle title="Викторина создана" />}
+									/>
+								</View>
 								<ScrollView>
 									<View style={{ marginBottom: height / 15 }}></View>
 									<Text
@@ -162,6 +162,35 @@ export default class FinishCreate extends React.Component {
 												>
 													200 из 250
 												</Text>
+											</View>
+											<View
+												style={{
+													height: 28,
+													backgroundColor: '#FF3358',
+													borderRadius: 10,
+													width: 28,
+													shadowColor: 'rgba(255, 51, 88, 0.6)',
+													shadowOpacity: 0.8,
+													shadowRadius: 15,
+													shadowOffset: {
+														height: -1,
+														width: 0,
+													},
+												}}
+											>
+												<TouchableOpacity
+													style={{
+														width: '100%',
+														height: '100%',
+														justifyContent: 'center',
+														alignItems: 'center',
+													}}
+												>
+													<Image
+														source={require('../../assets/icons/share.png')}
+														style={{ width: 20, height: 20 }}
+													/>
+												</TouchableOpacity>
 											</View>
 										</View>
 									</View>

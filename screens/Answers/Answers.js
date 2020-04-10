@@ -36,30 +36,35 @@ export default class Answers extends React.Component {
 								question="Какой автомобиль победил в гонке «24 часа Ле-манн» в 1964 году?"
 								uAnswer="Жигули Лада 2108"
 								answer="Mercedes Benz GlS-2510"
+								description="Тут пояснение к правильному ответу"
 							/>
 							<AnswersBlock1
 								id="2"
 								question="Какой автомобиль победил в гонке «24 часа Ле-манн» в 1964 году?"
 								uAnswer="Жигули Лада 2108"
 								answer="Mercedes Benz GlS-2510"
+								description="Тут пояснение к правильному ответу"
 							/>
 							<AnswersBlock
 								id="3"
 								question="Какой автомобиль победил в гонке «24 часа Ле-манн» в 1964 году?"
 								uAnswer="Жигули Лада 2108"
 								answer="Mercedes Benz GlS-2510"
+								description="Тут пояснение к правильному ответу"
 							/>
 							<AnswersBlock
 								id="4"
 								question="Какой автомобиль победил в гонке «24 часа Ле-манн» в 1964 году?"
 								uAnswer="Жигули Лада 2108"
 								answer="Mercedes Benz GlS-2510"
+								description="Тут пояснение к правильному ответу"
 							/>
 							<AnswersBlock
 								id="5"
 								question="Какой автомобиль победил в гонке «24 часа Ле-манн» в 1964 году?"
 								uAnswer="Жигули Лада 2108"
 								answer="Mercedes Benz GlS-2510"
+								description="Тут пояснение к правильному ответу"
 							/>
 						</ScrollView>
 					</View>

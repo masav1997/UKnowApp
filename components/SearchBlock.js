@@ -33,7 +33,7 @@ export default class SearchBlock extends React.Component {
 							/>
 						</View>
 						<View style={{ flex: 10 }}>
-							<TextInput style={{ bottom: 10, marginLeft: 10, marginRight: 10, color: '#FFF' }} />
+							<TextInput style={{ bottom: 10, marginLeft: 10, marginRight: 10, color: '#FFF' }}/>
 						</View>
 						<TouchableOpacity style={{ flex: 1, alignContent: 'flex-end' }} onPress={onPress}>
 							<Image

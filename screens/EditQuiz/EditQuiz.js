@@ -8,14 +8,34 @@ import NameBlock from '../../components/NameBlock';
 import WinBlock from '../../components/WinBlock';
 import { AppConsumer } from '../../AppContextProvider';
 import DescriptionBlock from '../../components/DescriptionBlock';
+import Modal from 'react-native-modal';
+import Button from '../../components/Button';
 
 const { width } = Dimensions.get('window');
 
 export default class EditQuiz extends React.Component {
+	state = {
+		isModalVisible: false,
+		pressManual: true,
+	};
+	_onShowInput() {
+		if (!this.state.pressManual) {
+			this.setState({ pressManual: true });
+		} else {
+			this.setState({ pressManual: false });
+		}
+	}
+	toggleModal = () => {
+		this.setState({ isModalVisible: !this.state.isModalVisible });
+	};
+	toggleModal1 = () => {
+		this.setState({ isModalVisible: !this.state.isModalVisible });
+		this.props.navigation.navigate('Question');
+	};
 	render() {
 		return (
 			<AppConsumer>
-				{appConsumer1 => (
+				{(appConsumer1) => (
 					<View style={{ flex: 1, backgroundColor: appConsumer1.theme.colors.bg2, alignItems: 'center' }}>
 						<SafeAreaView
 							style={{
@@ -42,7 +62,9 @@ export default class EditQuiz extends React.Component {
 										}
 										center={<Logo />}
 										right={
-											<TouchableOpacity onPress={() => this.props.navigation.navigate('EditQuiz1')}>
+											<TouchableOpacity
+												onPress={() => this.props.navigation.navigate('EditQuiz1')}
+											>
 												<View style={{ width: 20, height: 50, top: 20 }}>
 													<PenIcon
 														onPress={() => this.props.navigation.navigate('EditQuiz1')}
@@ -332,29 +354,263 @@ export default class EditQuiz extends React.Component {
 											style={{ width: 30, height: 30, top: 10, marginRight: 10 }}
 										/>
 									</ScrollView>
-									<View style={{ flexDirection: 'row', flex: 1, alignSelf: 'center' }}>
-										<Image
-											source={require('../../assets/icons/delete.png')}
+									<Modal isVisible={this.state.isModalVisible}>
+										<View
 											style={{
-												width: 20,
-												height: 20,
-												alignSelf: 'center',
-												bottom: 13,
-												marginRight: 5,
-											}}
-										/>
-										<Text
-											style={{
-												fontSize: 16,
-												fontWeight: '500',
-												lineHeight: 20,
-												marginBottom: 25,
-												textAlign: 'left',
-												color: '#FF3358',
+												width: width - 30,
+												height: 'auto',
+												backgroundColor: '#19232F',
+												borderTopLeftRadius: 16,
+												borderTopRightRadius: 16,
+												borderBottomLeftRadius: 16,
+												paddingRight: 15,
+												paddingLeft: 15,
+												paddingTop: 32,
 											}}
 										>
-											Удалить викторину
-										</Text>
+											<Text
+												style={{
+													fontSize: 20,
+													color: '#fff',
+													marginBottom: 10,
+													fontWeight: 'bold',
+													textAlign: 'center',
+												}}
+											>
+												Внимание!
+											</Text>
+											<Text
+												style={{
+													fontSize: 16,
+													color: '#fff',
+													marginBottom: 20,
+													fontWeight: '500',
+													textAlign: 'center',
+													lineHeight: 20,
+												}}
+											>
+												Вы действительно хотите поучаствовать в этой викторине. Стоимость
+												участия{' '}
+												<Text
+													style={{
+														fontSize: 16,
+														color: '#FEAC5E',
+														marginBottom: 10,
+														fontWeight: '700',
+														textAlign: 'center',
+													}}
+												>
+													250 руб.
+												</Text>{' '}
+											</Text>
+											<Button buttonTitle="ДА" onPress={this.toggleModal1} />
+											<TouchableOpacity onPress={this.toggleModal}>
+												<Text
+													style={{
+														fontSize: 16,
+														color: '#FF3358',
+														marginBottom: 25,
+														fontWeight: 'bold',
+														textAlign: 'center',
+													}}
+												>
+													Назад
+												</Text>
+											</TouchableOpacity>
+										</View>
+									</Modal>
+									<View
+										style={{
+											flexDirection: 'row',
+											alignSelf: 'center',
+											marginLeft: 15,
+											marginRight: 15,
+											bottom: 0,
+										}}
+									>
+										<View
+											style={{
+												flex: 4,
+												backgroundColor: '#FF3358',
+												borderRadius: 15,
+												width: width - 30,
+												height: 50,
+												alignSelf: 'center',
+												marginBottom: 25,
+												shadowColor: 'rgba(255, 51, 88, 0.6)',
+												shadowOpacity: 0.8,
+												shadowRadius: 15,
+												shadowOffset: {
+													height: -1,
+													width: 0,
+												},
+											}}
+										>
+											<TouchableOpacity
+												style={{
+													width: '100%',
+													height: '100%',
+													display: 'flex',
+													justifyContent: 'center',
+													alignItems: 'center',
+												}}
+												onPress={this.toggleModal}
+											>
+												<Text
+													style={{
+														color: '#FFFFFF',
+														lineHeight: 16,
+														fontWeight: 'bold',
+													}}
+												>
+													Начать
+												</Text>
+											</TouchableOpacity>
+										</View>
+										<View style={{ flex: 1 }}>
+											{!this.state.pressManual ? (
+												<View style={{ flexDirection: 'column' }}>
+													<View
+														style={{
+															backgroundColor: '#FF3358',
+															borderRadius: 15,
+															width: 50,
+															height: 50,
+															alignSelf: 'center',
+															bottom: 120,
+															right: Platform.OS === 'android' ? 5 : 0,
+															shadowColor: 'rgba(255, 51, 88, 0.6)',
+															shadowOpacity: 0.8,
+															shadowRadius: 15,
+															shadowOffset: {
+																height: -1,
+																width: 0,
+															},
+															position: 'absolute',
+														}}
+													>
+														<TouchableOpacity
+															style={{
+																width: '100%',
+																height: '100%',
+																display: 'flex',
+																justifyContent: 'center',
+																alignItems: 'center',
+															}}
+															onPress={() => this.props.navigation.navigate('CreateQuiz')}
+														>
+															<Image
+																source={require('../../assets/icons/delete.png')}
+																style={{ width: 22, height: 22, tintColor: 'white' }}
+															/>
+														</TouchableOpacity>
+													</View>
+													<View
+														style={{
+															backgroundColor: '#FF3358',
+															borderRadius: 15,
+															width: 50,
+															height: 50,
+															alignSelf: 'center',
+															bottom: 60,
+															right: Platform.OS === 'android' ? 5 : 0,
+															shadowColor: 'rgba(255, 51, 88, 0.6)',
+															shadowOpacity: 0.8,
+															shadowRadius: 15,
+															shadowOffset: {
+																height: -1,
+																width: 0,
+															},
+															position: 'absolute',
+														}}
+													>
+														<TouchableOpacity
+															style={{
+																width: '100%',
+																height: '100%',
+																display: 'flex',
+																justifyContent: 'center',
+																alignItems: 'center',
+															}}
+														>
+															<Image
+																source={require('../../assets/icons/share.png')}
+																style={{ width: 22, height: 22, tintColor: 'white' }}
+															/>
+														</TouchableOpacity>
+													</View>
+													<View
+														style={{
+															backgroundColor: '#FF3358',
+															borderRadius: 15,
+															width: 50,
+															height: 50,
+															alignSelf: 'center',
+															marginLeft: 10,
+															shadowColor: 'rgba(255, 51, 88, 0.6)',
+															shadowOpacity: 0.8,
+															shadowRadius: 15,
+															shadowOffset: {
+																height: -1,
+																width: 0,
+															},
+														}}
+													>
+														<TouchableOpacity
+															style={{
+																width: '100%',
+																height: '100%',
+																display: 'flex',
+																justifyContent: 'center',
+																alignItems: 'center',
+															}}
+															onPress={this._onShowInput.bind(this)}
+														>
+															<Image
+																source={require('../../assets/icons/dots.png')}
+																style={{ width: 22, height: 4, tintColor: 'white' }}
+															/>
+														</TouchableOpacity>
+													</View>
+												</View>
+											) : (
+												<View
+													style={{
+														flex: 1,
+														backgroundColor: '#FF3358',
+														borderRadius: 15,
+														width: 50,
+														height: 50,
+														alignSelf: 'center',
+														marginBottom: 25,
+														marginLeft: 10,
+														shadowColor: 'rgba(255, 51, 88, 0.6)',
+														shadowOpacity: 0.8,
+														shadowRadius: 15,
+														shadowOffset: {
+															height: -1,
+															width: 0,
+														},
+													}}
+												>
+													<TouchableOpacity
+														style={{
+															width: '100%',
+															height: '100%',
+															display: 'flex',
+															justifyContent: 'center',
+															alignItems: 'center',
+														}}
+														onPress={this._onShowInput.bind(this)}
+													>
+														<Image
+															source={require('../../assets/icons/dots.png')}
+															style={{ width: 22, height: 4, tintColor: 'white' }}
+														/>
+													</TouchableOpacity>
+												</View>
+											)}
+										</View>
 									</View>
 								</ScrollView>
 							</View>
